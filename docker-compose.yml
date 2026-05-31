@@ -1,0 +1,23 @@
+services:
+  opengist:
+    image: ghcr.io/TON_USERNAME/opengist-fork:latest
+    container_name: opengist
+    restart: unless-stopped
+    volumes:
+      - ./data:/opengist
+    environment:
+      OG_SECRET_KEY: "${OG_SECRET_KEY}"
+      OG_EXTERNAL_URL: "https://paste.peda.ovh"
+      OG_DB_TYPE: "sqlite"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.opengist.rule=Host(`paste.peda.ovh`)"
+      - "traefik.http.routers.opengist.entrypoints=websecure"
+      - "traefik.http.routers.opengist.tls=true"
+      - "traefik.http.services.opengist.loadbalancer.server.port=6157"
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true

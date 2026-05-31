@@ -1,0 +1,332 @@
+gist.public: Herkese Açık
+gist.unlisted: Listelenmemiş
+gist.private: Gizli
+
+gist.header.like: Beğen
+gist.header.unlike: Beğenmekten Vazgeç
+gist.header.fork: Çatalla
+gist.header.edit: Düzenle
+gist.header.delete: Sil
+gist.header.forked-from: Çatallandı
+gist.header.last-active: Son aktivite
+gist.header.select-tab: Bir sekme seç
+gist.header.code: Kod
+gist.header.revisions: Revizyonlar
+gist.header.revision: Revizyon
+gist.header.clone-http: '%s ile klonla'
+gist.header.clone-http-help: HTTP temel kimlik doğrulamasını kullanarak Git ile klonlayın.
+gist.header.clone-ssh: SSH aracılığıyla klonla
+gist.header.clone-ssh-help: Bir SSH anahtarı kullanarak Git ile klonlayın.
+gist.header.embed: Göm
+gist.header.embed-help: Bu gisti web sitenize yerleştirin.
+gist.header.download-zip: ZIP'i İndir
+
+gist.raw: Ham
+gist.file-truncated: Bu dosya kısaltılmıştır.
+gist.watch-full-file: Dosyanın tamamını görüntüleyin.
+gist.file-not-valid: Bu dosya geçerli bir CSV dosyası değildir.
+gist.no-content: Dosya bulunamadı
+
+gist.new.new_gist: Yeni gist
+gist.new.title: Başlık
+gist.new.description: Açıklama
+gist.new.url: URL
+gist.new.filename-with-extension: Dosya adı ve uzantısı
+gist.new.indent-mode: Girinti modu
+gist.new.indent-mode-space: Boşluk
+gist.new.indent-mode-tab: Sekme
+gist.new.indent-size: Girinti boyutu
+gist.new.wrap-mode: 'Satır kaydırma modu'
+gist.new.wrap-mode-no: 'Kaydırma yok'
+gist.new.wrap-mode-soft: 'Yumuşak kaydırma'
+gist.new.add-file: Dosya ekle
+gist.new.create-public-button: Herkese açık gist oluştur
+gist.new.create-unlisted-button: Liste dışı gist oluştur
+gist.new.create-private-button: Gizli gist oluştur
+gist.new.preview: Önizle
+gist.new.create-a-new-gist: Yeni bir gist oluştur
+
+gist.edit.editing: Düzenleniyor
+gist.edit.edit-gist: '%s düzenle'
+gist.edit.change-visibility: 'Yap'
+gist.edit.delete: Sil
+gist.edit.cancel: İptal Et
+gist.edit.save: Kaydet
+
+gist.list.joined: Katıldı
+gist.list.all: Tüm gistler
+gist.list.search-results: Arama sonuçları
+gist.list.sort: Sırala
+gist.list.sort-by-created: oluşturuldu
+gist.list.sort-by-updated: güncellendi
+gist.list.order-by-asc: En eski
+gist.list.order-by-desc: Yakın zamanda
+gist.list.select-tab: Bir sekme seçin
+gist.list.liked: Beğenildi
+gist.list.likes: beğeniler
+gist.list.forked: Çatallandı
+gist.list.forked-from: Çatallandı
+gist.list.forks: çatallar
+gist.list.files: dosyalar
+gist.list.last-active: Son aktivite
+gist.list.no-gists: Gist yok
+gist.list.all-liked-by: '%s tarafından beğenilen tüm gistler'
+gist.list.all-forked-by: '%s tarafından çatallanan tüm gistler'
+gist.list.all-from: '%s oluşturduğu tüm gistler'
+
+gist.search.found: gist bulundu
+gist.search.no-results: Hiç gist bulunamadı
+gist.search.help.user: kullanıcı tarafından oluşturulan gistler
+gist.search.help.title: belirtilen isme sahip gistler
+gist.search.help.filename: belirtilen isimde dosyaları olan gistler
+gist.search.help.extension: belirtilen uzantıya sahip dosyalara sahip gistler
+gist.search.help.language: belirtilen dilde dosyaları olan gistler
+
+gist.forks: Çatallar
+gist.forks.view: Çatalı görüntüle
+gist.forks.no: Herkes açık çatal yok
+gist.forks.for: '%s için çatallar'
+
+gist.likes: Beğeniler
+gist.likes.no: Henüz kimse beğenmedi
+gist.likes.for: '%s için beğeniler'
+
+gist.revisions: Düzenlemeler
+gist.revision.revised: bu gisti düzenledi
+gist.revision.go-to-revision: Düzenlemeye git
+gist.revision.file-created: dosya oluşturuldu
+gist.revision.file-deleted: dosya silindi
+gist.revision.file-renamed: yeniden adlandırıldı
+gist.revision.diff-truncated: Fark gösterilemeyecek kadar büyük
+gist.revision.file-renamed-no-changes: Dosya değişiklik yapılmadan yeniden adlandırıldı
+gist.revision.empty-file: Boş dosya
+gist.revision.no-changes: Değişiklik yok
+gist.revision.no-revisions: Gösterilecek düzenleme yok
+gist.revision-of: '%s düzenlemesi'
+
+settings: Ayarlar
+settings.email: E-Posta
+settings.email-help: Commit ve Gravatar için kullanılır
+settings.email-set: E-postayı ayarla
+settings.link-accounts: Hesapları bağla
+settings.link-github-account: GitHub hesabını bağla
+settings.link-gitlab-account: GitLab hesabını bağla
+settings.link-gitea-account: Gitea hesabını bağla
+settings.unlink-github-account: GitHub hesabının bağlantısını kaldır
+settings.unlink-gitlab-account: GitLab hesabının bağlantısını kaldır
+settings.unlink-gitea-account: Gitea hesabının bağlantısını kaldır
+settings.delete-account: Hesabı sil
+settings.delete-account-confirm: Hesabını silmek istediğinden emin misin?
+settings.add-ssh-key: SSH anahtarı ekle
+settings.add-ssh-key-help: Sadece SSH üzerinden Git kullanarak gistlerin pull/push işlemlerinde kullanılır
+settings.add-ssh-key-title: Başlık
+settings.add-ssh-key-content: Anahtar
+settings.delete-ssh-key: Sil
+settings.delete-ssh-key-confirm: SSH anahtarının silinmesini onaylayın
+settings.ssh-key-added-at: Eklendi
+settings.ssh-key-never-used: Hiç kullanılmadı
+settings.ssh-key-last-used: Son kullanma
+settings.change-username: Kullanıcı adını değiştir
+settings.create-password: Parola oluştur
+settings.create-password-help: HTTP üzerinden Opengist'e giriş yapmak için parolanızı oluşturun
+settings.change-password: Parolayı değiştir
+settings.change-password-help: HTTP üzerinden Opengist'e giriş yapmak için parolanızı değiştirin
+settings.password-label-title: Parola
+
+auth.signup-disabled: Yönetici kaydolmayı devre dışı bıraktı
+auth.login: Giriş
+auth.signup: Kaydol
+auth.new-account: Yeni hesap
+auth.username: Kullanıcı adı
+auth.password: Parola
+auth.register-instead: Bunun yerine kayıt olun
+auth.login-instead: Bunun yerine giriş yapın
+auth.oauth: '%s hesabı ile devam et'
+
+error: Hata
+error.page-not-found: Sayfa bulunamadı
+error.bad-request: Geçersiz istek
+error.signup-disabled: Kullanıcı kaydı devre dışı bırakıldı
+error.signup-disabled-form: Kayıt formu aracılığıyla kullanıcı kaydı devre dışı bırakıldı
+error.login-disabled-form: Giriş formu üzerinden giriş yapma devre dışı bırakıldı
+error.complete-oauth-login: "Kullanıcı kimlik doğrulaması tamamlanamıyor: %s"
+error.oauth-unsupported: Desteklenmeyen sağlayıcı
+error.cannot-bind-data: Veri bağlanamıyor
+error.invalid-number: Geçersiz numara
+error.invalid-character-unescaped: Geçersiz karakter için kaçış işlemi yapılamadı
+
+header.menu.all: Tümü
+header.menu.new: Yeni
+header.menu.search: Ara
+header.menu.my-gists: Gistlerim
+header.menu.liked: Beğenilen
+header.menu.admin: Yönetici
+header.menu.settings: Ayarlar
+header.menu.logout: Çıkış
+header.menu.register: Kaydol
+header.menu.login: Giriş
+header.menu.light: Açık
+header.menu.dark: Koyu
+header.menu.system: Sistem
+footer.powered-by: '%s tarafından desteklenmektedir'
+
+pagination.older: Daha eski
+pagination.newer: Daha yeni
+pagination.previous: Önceki
+pagination.next: Sonraki
+
+admin.admin_panel: Yönetici paneli
+admin.general: Genel
+admin.users: Kullanıcılar
+admin.gists: Gistler
+admin.configuration: Yapılandırma
+admin.invitations: Davetler
+admin.invitations.create: Davet oluştur
+admin.versions: Sürümler
+admin.ssh_keys: SSH anahtarları
+admin.stats: İstatistikler
+admin.actions: Eylemler
+admin.actions.sync-fs: Gistleri dosya sisteminden senkronize et
+admin.actions.sync-db: Gistleri veri tabanından senkronize et
+admin.actions.git-gc: Tüm Git depolarındaki gereksiz verileri temizle
+admin.actions.sync-previews: Tüm gist önizlemelerini senkronize et
+admin.actions.reset-hooks: Tüm depolar için Git sunucu kancalarını sıfırla
+admin.actions.index-gists: Arama dizinini yeniden oluştur
+admin.id: ID
+admin.user: Kullanıcı
+admin.delete: Sil
+admin.created_at: Oluşturulma
+
+admin.config-link: Bu yapılandırma, bir YAML yapılandırma dosyası ve/veya ortam değişkenleri tarafından %s.
+admin.config-link-overriden: geçersiz kılınabilir
+admin.disable-signup: Kayıt işlemini devre dışı bırak
+admin.disable-signup_help: Yeni hesap oluşturulmasını yasaklar.
+admin.require-login: Giriş gerektir
+admin.require-login_help: Gistleri görebilmek için kullanıcıların oturum açmasını zorunlu kılar.
+admin.disable-login: Giriş formunu devre dışı bırak
+admin.disable-login_help: Giriş formunu kullanarak giriş yapmayı yasaklar ve bunun yerine OAuth sağlayıcılarının kullanılmasını zorunlu hale getirir.
+admin.disable-gravatar: Gravatar'ı devre dışı bırak
+admin.disable-gravatar_help: Gravatar'ın avatar sağlayıcı olarak kullanımını devre dışı bırakır.
+admin.allow-gists-without-login: Bireysel gistlere oturum açmadan izin ver
+admin.allow-gists-without-login_help: Bireysel gistlerin oturum açmadan görüntülenmesine ve indirilmesine izin verir, ancak gistleri keşfetmek için oturum açmayı zorunlu kılar.
+admin.users.delete_confirm: Bu kullanıcıyı silmek istiyor musun?
+
+admin.gists.title: Başlık
+admin.gists.private: Gizlilik
+admin.gists.nb-files: Dosyalar
+admin.gists.nb-likes: Beğeniler
+admin.gists.delete_confirm: Bu gisti silmek istiyor musun?
+
+admin.invitations.help: Kayıt olma özelliği devre dışı bırakılmış olsa bile, hesap oluşturmak için davetiyeler kullanılabilir.
+admin.invitations.max_uses: Maksimum kullanım
+admin.invitations.expires_at: Sona erme tarihi
+admin.invitations.code: Kod
+admin.invitations.copy_link: Linki kopyala
+admin.invitations.uses: Kullanım
+admin.invitations.expired: Süresi bitti
+
+flash.admin.user-deleted: Kullanıcı silindi
+flash.admin.gist-deleted: Gist silindi
+flash.admin.invitation-created: Davetiye oluşturuldu
+flash.admin.invitation-deleted: Davetiye silindi
+flash.admin.sync-fs: Depolar dosya sisteminden senkronize ediliyor...
+flash.admin.sync-db: Depolar veri tabanından senkronize ediliyor...
+flash.admin.git-gc: Depolardan gereksiz veriler temizleniyor...
+flash.admin.sync-previews: Gist önizlemeleri senkronize ediliyor...
+flash.admin.reset-hooks: Tüm depolar için Git sunucusu kancaları sıfırlanıyor...
+flash.admin.index-gists: Arama dizini yeniden oluşturuluyor...
+
+flash.auth.username-exists: Kullanıcı adı zaten mevcut
+flash.auth.invalid-credentials: Geçersiz kimlik bilgileri
+flash.auth.account-linked-oauth: Hesap %s ile bağlantılı
+flash.auth.account-unlinked-oauth: Hesabın %s ile bağlantısı kaldırıldı
+flash.auth.user-sshkeys-not-retrievable: Kullanıcı anahtarları alınamadı
+flash.auth.user-sshkeys-not-created: SSH anahtarı oluşturulamadı
+flash.auth.must-be-logged-in: Gistlere erişmek için giriş yapmış olmanız gerekli
+
+flash.gist.visibility-changed: Gist görünürlüğü değiştirildi
+flash.gist.deleted: Gist silindi
+flash.gist.fork-own-gist: Kendi gistlerin çatallanamaz
+flash.gist.forked: Gist çatallandı
+
+flash.user.email-updated: E-posta güncellendi
+flash.user.invalid-ssh-key: Geçersiz SSH anahtarı
+flash.user.ssh-key-added: SSH anahtarı eklendi
+flash.user.ssh-key-deleted: SSH anahtarı silindi
+flash.user.password-updated: Parola güncellendi
+flash.user.username-updated: Kullanıcı adı güncellendi
+
+validation.is-too-long: '%s alanı çok uzun'
+validation.should-not-be-empty: '%s alanı boş olmamalı'
+validation.should-not-include-sub-directory: '%s alanı bir alt dizin içermemeli'
+validation.should-only-contain-alphanumeric-characters: '%s alanı yalnızca alfanümerik karakterler içermelidir'
+validation.should-only-contain-alphanumeric-characters-and-dashes: '%s alanı yalnızca alfanümerik karakterler ve tire içermelidir'
+validation.not-enough: Yeterli %s yok
+validation.invalid: Geçersiz %s
+
+html.title.admin-panel: Yönetici paneli
+settings.ssh-key-exists: SSH anahtarı zaten mevcut
+gist.search.help.topic: Verilen konuyla ilgili gist'ler
+gist.search.placeholder.unlisted: Listelenmemiş
+settings.header.style: Stil
+auth.mfa.passkey: Parola Anahtarı
+auth.mfa.waiting-for-passkey-input: Tarayıcı etkileşiminden gelecek girdi bekleniyor...
+settings.header.account: Hesap
+settings.style.no-soft-wrap: Yumuşak Satır Kaydırma Yok
+auth.totp: Zamana Dayalı Tek Kullanımlık Parola (TOTP)
+flash.admin.sync-gist-languages: Gist dilleri senkronize ediliyor...
+auth.mfa.passkeys-help: Hesabınıza giriş yapmak ve çok faktörlü kimlik doğrulama yöntemi olarak kullanmak için bir geçiş anahtarı ekleyin.
+validation.invalid-gist-topics: Geçersiz gist konuları, harf veya rakamla başlamalı, 50 karakterden uzun olmamalı ve tire içerebilir.
+auth.totp.enter-recovery-key: veya cihazınızı kaybettiyseniz kurtarma anahtarını kullanın
+auth.totp.save-recovery-codes: Kurtarma kodlarınızı güvenli bir yerde saklayın. Bu kodları, kimlik doğrulayıcı uygulamanıza erişimi kaybetmeniz durumunda hesabınıza yeniden erişmek için kullanabilirsiniz.
+error.not-in-mfa-session: Kullanıcı çok faktörlü kimlik doğrulama oturumunda değil
+admin.invitations.delete_confirm: Bu daveti silmek istiyor musunuz?
+auth.totp.help: TOTP, paylaşılan bir gizli anahtarı kullanarak tek kullanımlık bir parola üreten, iki faktörlü kimlik doğrulama yöntemidir.
+auth.totp.use: TOTP kullan
+auth.totp.regenerate-recovery-codes: Kurtarma kodlarını yeniden oluştur
+auth.totp.already-enabled: TOTP zaten etkinleştirilmiş
+auth.totp.invalid-secret: Geçersiz TOTP gizli anahtarı
+auth.totp.invalid-code: Geçersiz TOTP kodu
+auth.totp.code-used: '%s kurtarma kodu kullanıldı, artık geçersiz. Şu anda çok faktörlü kimlik doğrulamayı devre dışı bırakmak veya kodlarınızı yeniden oluşturmak isteyebilirsiniz.'
+flash.auth.passkey-registred: '%s geçiş anahtarı kaydedildi'
+gist.new.topics: Konular (boşluklarla ayır)
+gist.list.topic-results-topic: Tüm %s konusuyla eşleşen gist'ler
+gist.list.topic-results: Konuyla eşleşen tüm gist'ler
+gist.search.placeholder.title: Başlık
+gist.search.placeholder.visibility: Görünürlük
+gist.search.placeholder.public: Halka açık
+gist.search.placeholder.private: Özel
+gist.search.placeholder.language: Lisan
+gist.search.placeholder.all: Tümü
+gist.search.placeholder.topics: Başlıklar
+gist.search.placeholder.search: Ara
+gist.delete.confirm: Bu Gist'i silmek istediğinizden emin misiniz?
+flash.auth.passkey-deleted: Geçiş anahtarı silindi
+settings.header.mfa: ÇFKD
+settings.header.ssh: SSH
+settings.style.gist-code: Gist kodu
+settings.style.soft-wrap: Yumuşak Satır Kaydırma
+settings.style.removed-lines-color: Silinen satırların rengi
+settings.style.added-lines-color: Eklenen satırların rengi
+settings.style.git-lines-color: Git satırların rengi
+settings.style.save-style: Stili kaydet
+auth.mfa: Çok Faktörlü Kimlik Doğrulama
+auth.mfa.passkeys: Parola Anahtarları
+auth.mfa.use-passkey: Parola Anahtarı kullan
+auth.mfa.bind-passkey: Parola Anahtarı bağla
+auth.mfa.login-with-passkey: Parola Anahtarı ile Giriş yap
+auth.mfa.use-passkey-to-finish: Kimlik doğrulamayı tamamlamak için bir geçiş anahtarı kullanın
+auth.mfa.passkey-name: İsim
+auth.mfa.delete-passkey: Sil
+auth.mfa.passkey-added-at: Eklendi
+auth.mfa.passkey-never-used: Hiç kullanılmadı
+auth.mfa.passkey-last-used: Son kullanım
+auth.mfa.delete-passkey-confirm: Geçiş Anahtarının silinmesini onaylayın
+auth.totp.disabled: TOTP başarıyla devre dışı bırakıldı
+auth.totp.disable: TOTP devre dışı bırak
+auth.totp.enter-code: Kimlik Doğrulayıcı uygulamasındaki kodu girin
+auth.totp.code: Kod
+auth.totp.submit: Kaydet
+auth.totp.proceed: Onayla
+auth.totp.scan-qr-code: İki faktörlü kimlik doğrulamayı etkinleştirmek için aşağıdaki QR kodunu kimlik doğrulayıcı uygulamanızla tarayın veya aşağıdaki metni girin, ardından oluşturulan kodla onaylayın.
+admin.actions.sync-gist-languages: Tüm gist dillerini senkronize et

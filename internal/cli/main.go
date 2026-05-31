@@ -1,0 +1,228 @@
+package cli
+
+import (
+	"fmt"
+	"os"
+	"os/signal"
+	"path"
+	"path/filepath"
+	"syscall"
+
+	"time"
+
+	"github.com/rs/zerolog/log"
+	"github.com/thomiceli/opengist/internal/auth/webauthn"
+	"github.com/thomiceli/opengist/internal/config"
+	"github.com/thomiceli/opengist/internal/db"
+	"github.com/thomiceli/opengist/internal/git"
+	"github.com/thomiceli/opengist/internal/index"
+	"github.com/thomiceli/opengist/internal/ssh"
+	"github.com/thomiceli/opengist/internal/web/handlers/metrics"
+	"github.com/thomiceli/opengist/internal/web/server"
+	"github.com/urfave/cli/v2"
+)
+
+var CmdVersion = cli.Command{
+	Name:  "version",
+	Usage: "Print the version of Opengist",
+	Action: func(c *cli.Context) error {
+		fmt.Println("Opengist " + config.OpengistVersion)
+		return nil
+	},
+}
+
+var CmdStart = cli.Command{
+	Name:  "start",
+	Usage: "Start Opengist server",
+	Action: func(ctx *cli.Context) error {
+		stopCtx, stop := signal.NotifyContext(ctx.Context, syscall.SIGINT, syscall.SIGTERM)
+		defer stop()
+
+		Initialize(ctx)
+
+		httpServer := server.NewServer(os.Getenv("OG_DEV") == "1")
+		go httpServer.Start()
+		go ssh.Start()
+		go startAnonymousGistCleaner(stopCtx)
+
+		var metricsServer *metrics.Server
+		if config.C.MetricsEnabled {
+			metricsServer = metrics.NewServer()
+			go metricsServer.Start()
+		}
+
+		<-stopCtx.Done()
+		shutdown(httpServer, metricsServer)
+		return nil
+	},
+}
+
+var ConfigFlag = cli.StringFlag{
+	Name:    "config",
+	Aliases: []string{"c"},
+	Usage:   "Path to a config file in YAML format",
+}
+
+func App() error {
+	app := cli.NewApp()
+	app.Name = "Opengist"
+	app.Usage = "A self-hosted pastebin powered by Git."
+	app.HelpName = "opengist"
+
+	app.Commands = []*cli.Command{&CmdVersion, &CmdStart, &CmdHook, &CmdAdmin}
+	app.DefaultCommand = CmdStart.Name
+	app.Flags = []cli.Flag{
+		&ConfigFlag,
+	}
+	return app.Run(os.Args)
+}
+
+func Initialize(ctx *cli.Context) {
+	fmt.Println("Opengist " + config.OpengistVersion)
+
+	if err := config.InitConfig(ctx.String("config"), os.Stdout); err != nil {
+		panic(err)
+	}
+	if err := os.MkdirAll(filepath.Join(config.GetHomeDir()), 0755); err != nil {
+		panic(err)
+	}
+
+	config.SetupSecretKey()
+
+	config.InitLog()
+
+	gitVersion, err := git.GetGitVersion()
+	if err != nil {
+		log.Fatal().Err(err).Send()
+	}
+
+	if ok, err := config.CheckGitVersion(gitVersion); err != nil {
+		log.Fatal().Err(err).Send()
+	} else if !ok {
+		log.Warn().Msg("Git version may be too old, as Opengist has not been tested prior git version 2.28 and some features would not work. " +
+			"Current git version: " + gitVersion)
+	}
+
+	homePath := config.GetHomeDir()
+	log.Info().Msg("Data directory: " + homePath)
+
+	if err := git.InitGitConfig(); err != nil {
+		log.Warn().Err(err).Msgf("Failed to change the host's git global config, ensure to add to `safe.directory` the path %s, and `receive.advertisePushOptions` is set to true.", homePath)
+	}
+
+	if err := createSymlink(homePath, ctx.String("config")); err != nil {
+		log.Fatal().Err(err).Msg("Failed to create symlinks")
+	}
+
+	if err := os.MkdirAll(filepath.Join(homePath, "sessions"), 0755); err != nil {
+		log.Fatal().Err(err).Send()
+	}
+	if err := os.MkdirAll(filepath.Join(homePath, "repos"), 0755); err != nil {
+		log.Fatal().Err(err).Send()
+	}
+	if err := os.MkdirAll(filepath.Join(homePath, "tmp", "repos"), 0755); err != nil {
+		log.Fatal().Err(err).Send()
+	}
+	if err := os.MkdirAll(filepath.Join(homePath, "custom"), 0755); err != nil {
+		log.Fatal().Err(err).Send()
+	}
+
+	db.DeprecationDBFilename()
+	if err := db.Setup(config.C.DBUri); err != nil {
+		log.Fatal().Err(err).Msg("Failed to initialize database")
+	}
+
+	if err := webauthn.Init(config.C.ExternalUrl); err != nil {
+		log.Error().Err(err).Msg("Failed to initialize WebAuthn")
+	}
+
+	index.DepreactionIndexDirname()
+	if index.IndexEnabled() {
+		go index.NewIndexer(index.IndexType())
+	}
+}
+
+// startAnonymousGistCleaner runs a background goroutine that deletes expired
+// anonymous gists based on the admin-configured TTL setting.
+func startAnonymousGistCleaner(ctx interface{ Done() <-chan struct{} }) {
+	ticker := time.NewTicker(10 * time.Minute)
+	defer ticker.Stop()
+	for {
+		select {
+		case <-ticker.C:
+			ttl, err := db.GetSetting(db.SettingAnonymousGistTTL)
+			if err != nil {
+				log.Error().Err(err).Msg("Failed to read anonymous gist TTL setting")
+				continue
+			}
+			n := 0
+			if _, err := fmt.Sscanf(ttl, "%d", &n); err != nil || n <= 0 {
+				continue
+			}
+			if err := db.DeleteExpiredAnonymousGists(n); err != nil {
+				log.Error().Err(err).Msg("Failed to clean expired anonymous gists")
+			}
+		case <-ctx.Done():
+			return
+		}
+	}
+}
+
+func shutdown(httpServer *server.Server, metricsServer *metrics.Server) {
+	log.Info().Msg("Shutting down database...")
+	if err := db.Close(); err != nil {
+		log.Error().Err(err).Msg("Failed to close database")
+	}
+
+	if index.IndexEnabled() {
+		log.Info().Msg("Shutting down index...")
+		index.Close()
+	}
+
+	httpServer.Stop()
+
+	if metricsServer != nil {
+		metricsServer.Stop()
+	}
+
+	log.Info().Msg("Shutdown complete")
+}
+
+func createSymlink(homePath string, configPath string) error {
+	if err := os.MkdirAll(filepath.Join(homePath, "symlinks"), 0755); err != nil {
+		return err
+	}
+
+	exePath, err := os.Executable()
+	if err != nil {
+		return err
+	}
+
+	symlinkExePath := path.Join(config.GetHomeDir(), "symlinks", "opengist")
+	if _, err := os.Lstat(symlinkExePath); err == nil {
+		if err := os.Remove(symlinkExePath); err != nil {
+			return err
+		}
+	}
+	if err = os.Symlink(exePath, symlinkExePath); err != nil {
+		return err
+	}
+
+	if configPath == "" {
+		return nil
+	}
+
+	configPath, _ = filepath.Abs(configPath)
+	configPath = filepath.Clean(configPath)
+	symlinkConfigPath := path.Join(config.GetHomeDir(), "symlinks", "config.yml")
+	if _, err := os.Lstat(symlinkConfigPath); err == nil {
+		if err := os.Remove(symlinkConfigPath); err != nil {
+			return err
+		}
+	}
+	if err = os.Symlink(configPath, symlinkConfigPath); err != nil {
+		return err
+	}
+
+	return nil
+}

@@ -1,0 +1,337 @@
+gist.public: 'Öffentlich'
+gist.unlisted: 'Nicht Gelistet'
+gist.private: 'Privat'
+
+gist.header.like: 'Favorisieren'
+gist.header.unlike: 'Favorit entfernen'
+gist.header.fork: 'Fork'
+gist.header.edit: 'Bearbeiten'
+gist.header.delete: 'Löschen'
+gist.header.forked-from: 'Geforkt von'
+gist.header.last-active: 'Zuletzt aktiv'
+gist.header.select-tab: 'Tab auswählen'
+gist.header.code: 'Code'
+gist.header.revisions: 'Änderungen'
+gist.header.revision: 'Änderung'
+gist.header.clone-http: 'Mit %s Klonen'
+gist.header.clone-http-help: 'Mit Git und HTTP Basic Authentication Klonen.'
+gist.header.clone-ssh: 'Mit SSH Klonen'
+gist.header.clone-ssh-help: 'Mit Git und SSH Schlüssel Klonen.'
+gist.header.embed: 'Einbetten'
+gist.header.embed-help: 'Bette diese Gist in deine Webseite ein.'
+gist.header.download-zip: 'ZIP Herunterladen'
+
+gist.raw: 'Originalformat'
+gist.file-truncated: 'Diese Datei wurde abgeschnitten.'
+gist.watch-full-file: 'Die gesamte Datei anzeigen.'
+gist.file-not-valid: 'Diese Datei ist keine korrekte CSV Datei.'
+gist.no-content: 'Keine Dateien gefunden'
+
+gist.new.new_gist: 'Neue Gist'
+gist.new.title: 'Titel'
+gist.new.description: 'Beschreibung'
+gist.new.url: 'URL'
+gist.new.filename-with-extension: 'Dateiname mit Erweiterung'
+gist.new.indent-mode: 'Einrückungs Modus'
+gist.new.indent-mode-space: 'Leerzeichen'
+gist.new.indent-mode-tab: 'Tab'
+gist.new.indent-size: 'Einrückungs Größe'
+gist.new.wrap-mode: 'Textumbruch Modus'
+gist.new.wrap-mode-no: 'kein Textumbruch'
+gist.new.wrap-mode-soft: 'weicher Zeilenumbruch'
+gist.new.add-file: 'Datei hinzufügen'
+gist.new.create-public-button: 'Öffentliche Gist erstellen'
+gist.new.create-unlisted-button: 'Nicht gelistete Gist erstellen'
+gist.new.create-private-button: 'Private Gist erstellen'
+gist.new.preview: 'Vorschau'
+gist.new.create-a-new-gist: 'Neue Gist erstellen'
+
+gist.edit.editing: 'In Bearbeitung'
+gist.edit.edit-gist: '%s bearbeiten'
+gist.edit.change-visibility: 'Sichtbarkeit ändern'
+gist.edit.delete: 'Löschen'
+gist.edit.cancel: 'Abbrechen'
+gist.edit.save: 'Speichern'
+
+gist.list.joined: 'Beigetreten'
+gist.list.all: 'Alle Gists'
+gist.list.search-results: 'Suchergebnisse'
+gist.list.sort: 'Sortieren'
+gist.list.sort-by-created: 'erstellt'
+gist.list.sort-by-updated: 'bearbeitet'
+gist.list.order-by-asc: 'Älteste'
+gist.list.order-by-desc: 'Neueste'
+gist.list.select-tab: 'Tab auswählen'
+gist.list.liked: 'Favorisiert'
+gist.list.likes: 'Favoriten'
+gist.list.forked: 'Geforkt'
+gist.list.forked-from: 'Geforkt von'
+gist.list.forks: 'Forks'
+gist.list.files: 'Dateien'
+gist.list.last-active: 'Zuletzt aktiv'
+gist.list.no-gists: 'Keine Gists'
+gist.list.all-liked-by: 'Alle Gists favorisiert von %s'
+gist.list.all-forked-by: 'Alle Gists geforkt von %s'
+gist.list.all-from: 'Alle Gists von %s'
+
+gist.search.found: 'Gists gefunden'
+gist.search.no-results: 'Keine Gists gefunden'
+gist.search.help.user: 'Gists erstellt von Nutzer'
+gist.search.help.title: 'Gists mit Titel'
+gist.search.help.filename: 'Gists mit Dateinamen'
+gist.search.help.extension: 'Gists mit Dateiendung'
+gist.search.help.language: 'Gists in Sprache'
+
+gist.forks: 'Forks'
+gist.forks.view: 'Fork ansehen'
+gist.forks.no: 'Keine öffentlichen Forks'
+gist.forks.for: 'Fork für %s'
+
+gist.likes: 'Favoriten'
+gist.likes.no: 'Keine Favorisierungen'
+gist.likes.for: 'Favorisiert für %s'
+
+gist.revisions: 'Revisionen'
+gist.revision.revised: 'hat die Gist bearbeitet'
+gist.revision.go-to-revision: 'Zu Änderung gehen'
+gist.revision.file-created: 'Datei erstellt'
+gist.revision.file-deleted: 'Datei gelöscht'
+gist.revision.file-renamed: 'umbenannt zu'
+gist.revision.diff-truncated: 'Diff zu groß um angezeigt zu werden'
+gist.revision.file-renamed-no-changes: 'Datei ohne Änderung umbenannt'
+gist.revision.empty-file: 'Leere Datei'
+gist.revision.no-changes: 'Keine Änderungen'
+gist.revision.no-revisions: 'Keine Änderungen zum Anzeigen'
+gist.revision-of: 'Änderungen von %s'
+
+settings: 'Einstellungen'
+settings.email: 'Email'
+settings.email-help: 'Für Commits und Gravatar genutzt'
+settings.email-set: 'Email setzen'
+settings.link-accounts: 'Accounts verlinken'
+settings.link-github-account: 'GitHub-Account verlinken'
+settings.link-gitlab-account: 'GitLab-Account verlinken'
+settings.link-gitea-account: 'Gitea-Account verlinken'
+settings.unlink-github-account: 'GitHub-Account Verlinkung aufheben'
+settings.unlink-gitlab-account: 'GitLab-Account Verlinkung aufheben'
+settings.unlink-gitea-account: 'Gitea-Account Verlinkung aufheben'
+settings.delete-account: 'Account löschen'
+settings.delete-account-confirm: 'Bist du dir sicher, dass du den Account löschen willst?'
+settings.add-ssh-key: 'SSH-Schlüssel hinzufügen'
+settings.add-ssh-key-help: 'Wird nur zum Pullen/Pushen von Gists mit Git über SSH genutzt'
+settings.add-ssh-key-title: 'Titel'
+settings.add-ssh-key-content: 'Schlüssel'
+settings.delete-ssh-key: 'Löschen'
+settings.delete-ssh-key-confirm: 'Entfernen von SSH-Schlüssel bestätigen'
+settings.ssh-key-added-at: 'Hinzugefügt'
+settings.ssh-key-never-used: 'Nie benutzt'
+settings.ssh-key-last-used: 'Zuletzt benutzt'
+settings.ssh-key-exists: 'SSH Schlüssel existiert bereits'
+settings.change-username: 'Benutzername ändern'
+settings.create-password: 'Password erstellen'
+settings.create-password-help: 'Passwort erstellen'
+settings.change-password: 'Passwort ändern'
+settings.change-password-help: 'Passwort ändern'
+settings.password-label-title: 'Passwort'
+
+auth.signup-disabled: 'Das Registrieren wurde vom Administrator deaktiviert'
+auth.login: 'Anmeldung'
+auth.signup: 'Registration'
+auth.new-account: 'Neuer Account'
+auth.username: 'Benutzername'
+auth.password: 'Passwort'
+auth.register-instead: 'Stattdessen registrieren'
+auth.login-instead: 'Stattdessen anmelden'
+auth.oauth: 'Weiter mit %s Konto'
+
+error: 'Fehler'
+error.page-not-found: 'Seite nicht gefunden'
+error.bad-request: 'Ungültige Anfrage'
+error.signup-disabled: 'Registrierung ist deaktivert'
+error.signup-disabled-form: 'Registrierung über das Formular ist deaktiviert'
+error.login-disabled-form: 'Anmeldung über das Formular ist deaktiviert'
+error.complete-oauth-login: 'Anmeldung kann nicht abgeschlossen werden: %s'
+error.oauth-unsupported: 'Nicht unterstützer Anbieter'
+error.cannot-bind-data: 'Daten können nicht gebunden werden'
+error.invalid-number: 'Ungültige Nummer'
+error.invalid-character-unescaped: 'Ungültiges Zeichen unescapped'
+
+header.menu.all: 'Alle'
+header.menu.new: 'Neu'
+header.menu.search: 'Suchen'
+header.menu.my-gists: 'Meine Gists'
+header.menu.liked: 'Favorisiert'
+header.menu.admin: 'Admin'
+header.menu.settings: 'Einstellungen'
+header.menu.logout: 'Abmelden'
+header.menu.register: 'Registrieren'
+header.menu.login: 'Anmelden'
+header.menu.light: 'Hell'
+header.menu.dark: 'Dunkel'
+header.menu.system: 'System'
+footer.powered-by: 'Powered by %s'
+
+pagination.older: 'Älter'
+pagination.newer: 'Neuer'
+pagination.previous: 'Vorherige'
+pagination.next: 'Nachfolgende'
+
+admin.admin_panel: 'Admin Panel'
+admin.general: 'Allgemein'
+admin.users: 'Benutzer'
+admin.gists: 'Gists'
+admin.configuration: 'Konfiguration'
+admin.invitations: 'Einladungen'
+admin.invitations.create: 'Einladung erstellen'
+admin.versions: 'Versionen'
+admin.ssh_keys: 'SSH Schlüssel'
+admin.stats: 'Statistiken'
+admin.actions: 'Aktionen'
+admin.actions.sync-fs: 'Gists auf dem Dateisystem sychronisieren'
+admin.actions.sync-db: 'Gists von der Datenbank synchronisieren'
+admin.actions.git-gc: '„garbage collection“ bei allen git Repositories ausführen'
+admin.actions.sync-previews: 'Alle Gist Vorschauen synchronisieren'
+admin.actions.reset-hooks: 'Alle Git server Hooks für alle Repositories synchronisieren'
+admin.actions.index-gists: 'Suchindex neu aufbauen'
+admin.id: 'ID'
+admin.user: 'Benutzer'
+admin.delete: 'Löschen'
+admin.created_at: 'Erstellt'
+
+admin.config-link: 'Diese Konfiguration kann mithilfe der YAML Konfigurationsdatei und/oder Umgebungsvariablen %s werden.'
+admin.config-link-overriden: 'überschrieben'
+admin.disable-signup: 'Registrierung deaktivieren'
+admin.disable-signup_help: 'Die Erstellung neuer Accounts verbieten.'
+admin.require-login: 'Anmeldung nötig'
+admin.require-login_help: 'Benutzer müssen sich anmelden, bevor sie Gists ansehen können.'
+admin.allow-gists-without-login: 'Erlaube einzelne Gists ohne login'
+admin.allow-gists-without-login_help: 'Einzelne Gists können ohne Anmeldung angesehen und heruntergeladen werden, während für das Auffinden von Gists eine Anmeldung erforderlich ist.'
+admin.disable-login: 'Login-Maske deaktivieren'
+admin.disable-login_help: 'Login über Login-Maske verbieten und Benutzung von OAuth Providern erzwingen.'
+admin.disable-gravatar: 'Gravatar deaktivieren'
+admin.disable-gravatar_help: 'Gravatar als Avatar-Anbieter deaktivieren.'
+
+admin.users.delete_confirm: 'Willst du diesen Benutzer löschen?'
+
+admin.gists.title: 'Titel'
+admin.gists.private: 'Privat?'
+admin.gists.nb-files: 'Anz. Dateien'
+admin.gists.nb-likes: 'Anz. Favoriten'
+admin.gists.delete_confirm: 'Willst du diese Gist löschen?'
+
+admin.invitations.help: 'Einladungen können zur Erstellung eines Kontos verwendet werden, auch wenn die Anmeldung deaktiviert ist.'
+admin.invitations.max_uses: 'Maximale Verwendungen'
+admin.invitations.expires_at: 'Läuft ab am'
+admin.invitations.code: 'Code'
+admin.invitations.copy_link: 'Link kopieren'
+admin.invitations.uses: 'Verwendungen'
+admin.invitations.expired: 'Abgelaufen'
+
+flash.admin.user-deleted: 'Benutzer wurde gelöscht'
+flash.admin.gist-deleted: 'Gist wurde gelöscht'
+flash.admin.invitation-created: 'Einladung wurde erstellt'
+flash.admin.invitation-deleted: 'Einladung wurde gelöscht'
+flash.admin.sync-fs: 'Synchronisiere Repositories vom Dateisystem...'
+flash.admin.sync-db: 'Synchronisiere Repositories aus der Datenbank...'
+flash.admin.git-gc: 'Sammle Repositories...'
+flash.admin.sync-previews: 'Synchronisiere Gist-Vorschauen...'
+flash.admin.reset-hooks: 'Setze Git-Server-Hooks für alle Repositories zurück...'
+flash.admin.index-gists: 'Suchindex wird neu aufgebaut...'
+
+flash.auth.username-exists: 'Benutzername existiert bereits'
+flash.auth.invalid-credentials: 'Ungültige Anmeldeinformationen'
+flash.auth.account-linked-oauth: 'Konto verknüpft mit %s'
+flash.auth.account-unlinked-oauth: 'Konto getrennt von %s'
+flash.auth.user-sshkeys-not-retrievable: 'Benutzerschlüssel konnten nicht abgerufen werden'
+flash.auth.user-sshkeys-not-created: 'SSH-Schlüssel konnte nicht erstellt werden'
+flash.auth.must-be-logged-in: 'Sie müssen eingeloggt sein, um auf Gists zuzugreifen'
+
+flash.gist.visibility-changed: 'Gist-Sichtbarkeit wurde geändert'
+flash.gist.deleted: 'Gist wurde gelöscht'
+flash.gist.fork-own-gist: 'Eigene Gists können nicht geforkt werden'
+flash.gist.forked: 'Gist wurde geforkt'
+
+flash.user.email-updated: 'E-Mail wurde aktualisiert'
+flash.user.invalid-ssh-key: 'Ungültiger SSH-Schlüssel'
+flash.user.ssh-key-added: 'SSH-Schlüssel hinzugefügt'
+flash.user.ssh-key-deleted: 'SSH-Schlüssel gelöscht'
+flash.user.password-updated: 'Passwort wurde aktualisiert'
+flash.user.username-updated: 'Benutzername wurde aktualisiert'
+
+validation.is-too-long: 'Feld %s ist zu lang'
+validation.should-not-be-empty: 'Feld %s darf nicht leer sein'
+validation.should-not-include-sub-directory: 'Feld %s darf kein Unterverzeichnis enthalten'
+validation.should-only-contain-alphanumeric-characters: 'Feld %s darf nur alphanumerische Zeichen enthalten'
+validation.should-only-contain-alphanumeric-characters-and-dashes: 'Feld %s darf nur alphanumerische Zeichen und Bindestriche enthalten'
+validation.not-enough: 'Nicht genug %s'
+validation.invalid: 'Ungültiges %s'
+
+html.title.admin-panel: 'Admin-Panel'
+auth.totp.regenerate-recovery-codes: Wiederherstellungscodes neu generieren
+auth.totp.already-enabled: TOTP ist bereits aktiv
+auth.totp.invalid-secret: Ungültiger TOTP Sicherheitsschlüssel
+auth.totp.disable: TOTP ausschalten
+auth.mfa.passkey: Hauptschlüssel
+auth.mfa.use-passkey: Hauptschlüssel nutzen
+auth.mfa.use-passkey-to-finish: Nutzen Sie einen Hauptschlüssel, um Authentisierung abzuschliessen
+auth.totp.invalid-code: Ungültiger TOTP Code
+auth.mfa: Multi-Faktor Authentisierung
+gist.delete.confirm: Sind Sie sich sicher, ob Sie dieses Gist löschen wollen?
+auth.mfa.passkeys: Hauptschlüssel
+auth.mfa.bind-passkey: Hauptschlüssel verbinden
+auth.mfa.login-with-passkey: Mit Hauptschlüssel einloggen
+auth.mfa.waiting-for-passkey-input: Auf Eingabe von Browser-Interaktion warten...
+auth.mfa.passkey-name: Name
+auth.mfa.delete-passkey: Löschen
+auth.mfa.passkey-added-at: Hinzugefügt
+auth.mfa.passkey-never-used: Niemals benutzt
+auth.mfa.passkey-last-used: Zuletzt benutzt
+auth.totp.code: Code
+auth.totp.proceed: Fortfahren
+admin.invitations.delete_confirm: Willst du diese Einladung löschen?
+flash.auth.passkey-deleted: Hauptschlüssel gelöscht
+flash.auth.passkey-registred: Hauptschlüssel %s wurde registriert
+auth.totp: Zeitbasiertes Einmal-Passwort (TOTP)
+auth.totp.use: TOTP einrichten
+auth.totp.help: TOTP ist eine Zwei-Faktor-Authentifizierungsmethode, welche ein gemeinsames Geheimnis verwendet, um ein Einmal-Passwort zu generieren.
+auth.totp.code-used: Der Wiederherstellungscode %s wurde verwendet. Dieser ist nun ungültig. Du solltest die Zwei-Faktor-Authentifizierung möglicherweise vorübergehend deaktivieren oder deine Codes neu generieren.
+auth.totp.disabled: TOTP erfolgreich deaktiviert
+auth.mfa.passkeys-help: Füge einen Passkey hinzu, um dich bei deinem Account anzumelden und ihn als Zwei-Faktor-Methode zu verwenden.
+auth.mfa.delete-passkey-confirm: Löschen des Hauptschlüssels bestätigen
+auth.totp.submit: Bestätigen
+auth.totp.scan-qr-code: Scanne den unten stehenden QR-Code mit deiner Authentifizierungs-App, um die Zwei-Faktor-Authentifizierung zu aktivieren, oder gib den folgenden Schlüssel ein und bestätige anschliessend mit dem generierten Code.
+auth.totp.enter-code: Gib den Code aus deiner Authentifizierungs-App ein
+auth.totp.save-recovery-codes: Speichere deine Wiederherstellungscodes an einem sicheren Ort. Du kannst diese Codes verwenden, um wieder Zugang zu deinem Account zu erlangen, wenn du den Zugriff auf deine Authentifizierungs-App verloren hast.
+error.not-in-mfa-session: Nutzer ist nicht in einer Zwei-Faktor-Sitzung
+gist.revision.binary-file-changes: Änderungen an Binärdateien werden nicht angezeigt
+error.no-file-uploaded: Keine Datei hochgeladen
+flash.admin.sync-gist-languages: Gist-Sprachen werden synchronisiert …
+validation.invalid-gist-topics: Ungültige Gist-Themen. Sie müssen mit einem Buchstaben oder einer Zahl beginnen, dürfen maximal 50 Zeichen lang sein und dürfen Bindestriche enthalten
+gist.new.topics: Themen (durch Leerzeichen getrennt)
+gist.preview-non-available: Vorschau nicht verfügbar
+gist.new.drop-files: Dateien hier ablegen oder zum Hochladen klicken
+gist.new.any-file-type: Laden Sie einen beliebigen Dateityp hoch
+gist.list.topic-results-topic: Alle Gists mit dem Thema %s
+gist.file-raw: Diese Datei kann nicht gerendert werden.
+gist.file-binary-edit: Diese Datei ist binär.
+gist.search.placeholder.title: Titel
+gist.search.placeholder.visibility: Sichtbarkeit
+gist.search.placeholder.public: Öffentlich
+gist.search.placeholder.unlisted: Nicht gelistet
+gist.search.placeholder.private: Privat
+gist.search.placeholder.language: Sprache
+gist.search.placeholder.all: Alle
+gist.search.placeholder.topics: Themen
+gist.search.placeholder.search: Suche
+gist.search.help.topic: gists zum gegebenen Thema
+settings.header.account: Konto
+settings.header.mfa: MFA
+settings.header.ssh: SSH
+settings.header.style: Stil
+settings.style.removed-lines-color: Farbe entfernter Linien
+settings.style.added-lines-color: Farbe hinzugefügter Linien
+settings.style.git-lines-color: Git Linien Farbe
+settings.style.save-style: Stil Speichern
+auth.totp.enter-recovery-key: oder einen Wiederherstellungsschlüssel, wenn Sie Ihr Gerät verloren haben
+error.cannot-open-file: Die hochgeladene Datei kann nicht geöffnet werden
+admin.actions.sync-gist-languages: Synchronisieren Sie alle Gists-Sprachen

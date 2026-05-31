@@ -1,0 +1,286 @@
+gist.public: Public
+gist.unlisted: Non répertorié
+gist.private: Privé
+
+gist.header.like: J'aime
+gist.header.unlike: Je n'aime plus
+gist.header.fork: Fork
+gist.header.edit: Éditer
+gist.header.delete: Supprimer
+gist.header.forked-from: Forké de
+gist.header.last-active: Dernière activité
+gist.header.select-tab: Sélectionner un onglet
+gist.header.code: Code
+gist.header.revisions: Révisions
+gist.header.revision: Révision
+gist.header.clone-http: Cloner via %s
+gist.header.clone-http-help: Cloner avec Git en utilisant l'authentification HTTP basic.
+gist.header.clone-ssh: Cloner via SSH
+gist.header.clone-ssh-help: Cloner avec Git en utilisant une clé SSH.
+gist.header.embed: Intégrer
+gist.header.embed-help: Intégrer ce gist dans une page web.
+gist.header.download-zip: Télécharger en ZIP
+
+gist.raw: Brut
+gist.file-truncated: Ce fichier a été tronqué.
+gist.watch-full-file: Voir le fichier complet.
+gist.file-not-valid: Ce fichier n'est pas un fichier CSV valide.
+gist.no-content: Aucun fichier
+
+gist.new.new_gist: Nouveau gist
+gist.new.title: Titre
+gist.new.description: Description
+gist.new.filename-with-extension: Nom de fichier avec extension
+gist.new.indent-mode: Mode d'indentation
+gist.new.indent-mode-space: Espace
+gist.new.indent-mode-tab: Tabulation
+gist.new.indent-size: Taille d'indentation
+gist.new.wrap-mode: Mode d'enroulement
+gist.new.wrap-mode-no: Sans enroulement
+gist.new.wrap-mode-soft: Enroulement doux
+gist.new.add-file: Ajouter un fichier
+gist.new.create-public-button: Créer un gist public
+gist.new.create-unlisted-button: Créer un gist non repertorié
+gist.new.create-private-button: Créer un gist privé
+
+gist.edit.editing: Édition de
+gist.edit.change-visibility: Rendre
+gist.edit.delete: Supprimer
+gist.edit.cancel: Annuler
+gist.edit.save: Sauvegarder
+
+gist.list.joined: Inscrit
+gist.list.all: Tous les gists
+gist.list.search-results: Résultats de recherche
+gist.list.sort: Trier
+gist.list.sort-by-created: créé
+gist.list.sort-by-updated: mis à jour
+gist.list.order-by-asc: Le moins récemment
+gist.list.order-by-desc: Récemment
+gist.list.select-tab: Sélectionner un onglet
+gist.list.liked: Aimé
+gist.list.likes: j'aimes
+gist.list.forked: Forké
+gist.list.forked-from: Forké de
+gist.list.forks: forks
+gist.list.files: fichiers
+gist.list.last-active: Dernière activité
+gist.list.no-gists: Aucun gist
+
+gist.forks: Forks
+gist.forks.view: Voir le fork
+gist.forks.no: Pas de forks publics
+
+gist.likes: J'aime
+gist.likes.no: Aucun j'aime pour le moment
+
+gist.revisions: Révisions
+gist.revision.revised: a révisé ce gist
+gist.revision.go-to-revision: Aller à la révision
+gist.revision.file-created: fichier créé
+gist.revision.file-deleted: fichier supprimé
+gist.revision.file-renamed: renommé en
+gist.revision.diff-truncated: Révision trop volumineuse pour être affichée
+gist.revision.file-renamed-no-changes: Fichier renommé sans modifications
+gist.revision.empty-file: Fichier vide
+gist.revision.no-changes: Aucun changement
+gist.revision.no-revisions: Aucune révision à afficher
+
+settings: Paramètres
+settings.email: Email
+settings.email-help: Utilisé pour les commits et Gravatar
+settings.email-set: Définir l'email
+settings.link-accounts: Lier les comptes
+settings.link-github-account: Lier le compte GitHub
+settings.link-gitea-account: Lier le compte Gitea
+settings.unlink-github-account: Détacher le compte GitHub
+settings.unlink-gitea-account: Détacher le compte Gitea
+settings.delete-account: Supprimer le compte
+settings.delete-account-confirm: Êtes-vous sûr de vouloir supprimer votre compte ?
+settings.add-ssh-key: Ajouter une clé SSH
+settings.add-ssh-key-help: Utilisé uniquement pour pull/push des gists avec Git via SSH
+settings.add-ssh-key-title: Titre
+settings.add-ssh-key-content: Clé
+settings.delete-ssh-key: Supprimer
+settings.delete-ssh-key-confirm: Confirmer la suppression de la clé SSH
+settings.ssh-key-added-at: Ajouté
+settings.ssh-key-never-used: Jamais utilisé
+settings.ssh-key-last-used: Dernière utilisation
+
+auth.signup-disabled: L'administrateur a désactivé l'inscription
+auth.login: Connexion
+auth.signup: Inscription
+auth.new-account: Nouveau compte
+auth.username: Nom d'utilisateur
+auth.password: Mot de passe
+auth.register-instead: Je préfère m'inscrire
+auth.login-instead: Je préfère me connecter
+auth.oauth: Continuer avec un compte %s
+
+error: Erreur
+
+header.menu.all: Tous
+header.menu.new: Nouveau
+header.menu.search: Recherche
+header.menu.my-gists: Mes gists
+header.menu.liked: Aimés
+header.menu.admin: Admin
+header.menu.settings: Paramètres
+header.menu.logout: Déconnexion
+header.menu.register: Inscription
+header.menu.login: Connexion
+header.menu.light: Clair
+header.menu.dark: Sombre
+header.menu.system: Système
+footer.powered-by: Propulsé par %s
+
+pagination.older: Plus ancien
+pagination.newer: Plus récent
+pagination.previous: Précédent
+pagination.next: Suivant
+
+admin.admin_panel: Panneau d'administration
+admin.general: Général
+admin.users: Utilisateurs
+admin.gists: Gists
+admin.configuration: Configuration
+admin.versions: Versions
+admin.ssh_keys: Clés SSH
+admin.stats: Statistiques
+admin.actions: Actions
+admin.actions.sync-fs: Synchroniser les gists depuis le système de fichiers
+admin.actions.sync-db: Synchroniser les gists depuis la base de données
+admin.actions.git-gc: Nettoyage des dépôts git
+admin.id: ID
+admin.user: Utilisateur
+admin.delete: Supprimer
+admin.created_at: Créé
+
+admin.config-link: Cette configuration peut être %s par un fichier de configuration YAML et/ou des variables d'environnement.
+admin.config-link-overriden: remplacée
+admin.disable-signup: Désactiver l'inscription
+admin.disable-signup_help: Interdire la création de nouveaux comptes.
+admin.require-login: Exiger la connexion
+admin.require-login_help: Obliger les utilisateurs à être connectés pour voir les gists.
+admin.disable-login: Désactiver le formulaire de connexion
+admin.disable-login_help: Interdire la connexion via le formulaire de connexion pour forcer l'utilisation des fournisseurs OAuth à la place.
+admin.disable-gravatar: Désactiver Gravatar
+admin.disable-gravatar_help: Désactiver l'utilisation de Gravatar comme fournisseur d'avatar.
+admin.allow-gists-without-login: Autoriser les gists individuelles sans login
+admin.allow-gists-without-login_help: Autoriser la visualisation et le téléchargement de gists individuels sans connexion, tout en exigeant une connexion pour la découverte de gists.
+admin.users.delete_confirm: Voulez-vous supprimer cet utilisateur ?
+
+admin.gists.title: Titre
+admin.gists.private: Privé ?
+admin.gists.nb-files: Nb. de fichiers
+admin.gists.nb-likes: Nb. de j'aime
+admin.gists.delete_confirm: Voulez-vous supprimer ce gist ?
+gist.search.help.user: gists créés par un utilisateur
+gist.search.help.title: gists avec un titre spécifique
+gist.search.help.extension: gists qui ont des fichiers avec une extension spécifique
+gist.search.found: gists trouvés
+gist.search.help.filename: gists qui ont des fichiers avec un nom spécifique
+settings.link-gitlab-account: Lier le compte GitLab
+gist.search.help.language: gists qui ont des fichiers écrits en un langage spécifique
+settings.change-username: Changer le nom d'utilisateur
+settings.create-password: Créer un mot de passe
+settings.create-password-help: Créer un mot de passe pour se connecter à Opengist via HTTP
+settings.change-password: Changer le mot de passe
+settings.change-password-help: Changer le mot de passe pour se connecter à Opengist via HTTP
+settings.password-label-title: Mot de passe
+admin.actions.sync-previews: Synchroniser l'aperçu des gists
+admin.actions.reset-hooks: Réinitialiser les hooks de Git pour tous les dépôts
+gist.new.url: URL
+gist.search.no-results: Aucun gist trouvé
+settings.unlink-gitlab-account: Détacher le compte GitLab
+admin.actions.index-gists: Reconstruire l'index de recherche
+gist.new.preview: 'Aperçu'
+gist.new.create-a-new-gist: 'Créer un nouveau gist'
+gist.edit.edit-gist: 'Modifier %s'
+gist.list.all-liked-by: 'Tous les gists aimés par %s'
+gist.list.all-forked-by: 'Tous les gists forkées par %s'
+gist.list.all-from: 'Tous les gists de %S'
+gist.forks.for: 'Forks pour %s'
+gist.likes.for: 'J''aimes pour %s'
+gist.revision-of: 'Révisions pour %s'
+error.page-not-found: 'Page non trouvée'
+error.bad-request: 'Requête erronée'
+error.signup-disabled: 'L''inscription est désactivée'
+error.signup-disabled-form: 'L''inscription via le formulaire d''enregistrement est désactivée'
+error.login-disabled-form: 'La connexion via le formulaire de connexion est désactivée'
+error.complete-oauth-login: 'Impossible de terminer l''authentification de l''utilisateur : %s'
+error.oauth-unsupported: 'Fournisseur d''authentification non supporté'
+error.cannot-bind-data: 'Impossible de lier les données'
+error.invalid-number: 'Nombre invalide'
+error.invalid-character-unescaped: 'Caractère non protégé invalide'
+admin.invitations: 'Invitations'
+admin.invitations.create: 'Créer une invitation'
+admin.invitations.help: 'Les invitations peuvent être utilisées pour créer un compte même si l''inscription est désactivée.'
+admin.invitations.max_uses: 'Utilisations maximales'
+admin.invitations.expires_at: 'Expire le'
+admin.invitations.code: 'Code'
+admin.invitations.copy_link: 'Copier le lien'
+admin.invitations.uses: 'Utilisations'
+admin.invitations.expired: 'Expiré'
+flash.admin.user-deleted: 'L''utilisateur a été supprimé'
+flash.admin.gist-deleted: 'Le gist a été supprimée'
+flash.admin.invitation-created: 'L''invitation a été créée'
+flash.admin.invitation-deleted: 'L''invitation a été supprimée'
+flash.admin.sync-fs: 'Synchronisation des dépôts à partir du système de fichiers...'
+flash.admin.sync-db: 'Synchronisation des dépôts à partir de la base de données...'
+flash.admin.git-gc: 'Nettoyage des dépôts...'
+flash.admin.sync-previews: 'Synchronisation des aperçus du Gist...'
+flash.admin.reset-hooks: 'Réinitialisation des hooks du serveur Git pour tous les dépôts...'
+flash.admin.index-gists: 'Reconstruction de l''index de recherche...'
+flash.auth.username-exists: 'Nom d''utilisateur déjà utilisé'
+flash.auth.invalid-credentials: 'Identifiants non valides'
+flash.auth.account-linked-oauth: 'Compte lié à %s'
+flash.auth.account-unlinked-oauth: 'Compte dissocié de %s'
+flash.auth.user-sshkeys-not-retrievable: 'Impossible d''obtenir les clés de l''utilisateur'
+flash.auth.user-sshkeys-not-created: 'Impossible de créer une clé ssh'
+flash.auth.must-be-logged-in: 'Vous devez être connecté pour accéder aux gists'
+flash.gist.visibility-changed: 'La visibilité du gist a été modifiée'
+flash.gist.deleted: 'Le gist a été supprimé'
+flash.gist.fork-own-gist: 'Impossible de forker ses propres gists'
+flash.gist.forked: 'Le gist a été forké'
+flash.user.email-updated: 'Email mis à jour'
+flash.user.invalid-ssh-key: 'Clé SSH invalide'
+flash.user.ssh-key-added: 'Clé SSH ajoutée'
+flash.user.ssh-key-deleted: 'Clé SSH supprimée'
+flash.user.password-updated: 'Mot de passe mis à jour'
+flash.user.username-updated: 'Nom d''utilisateur mis à jour'
+validation.is-too-long: 'Le champ %s est trop long'
+validation.should-not-be-empty: 'Le champ %s ne doit pas être vide'
+validation.should-not-include-sub-directory: 'Le champ %s ne doit pas inclure de sous-répertoire'
+validation.should-only-contain-alphanumeric-characters: 'Le champ %s ne doit contenir que des caractères alphanumériques.'
+validation.should-only-contain-alphanumeric-characters-and-dashes: 'Le champ %s ne doit contenir que des caractères alphanumériques et des tirets.'
+validation.not-enough: 'Pas assez de %s'
+validation.invalid: '%s non valide'
+html.title.admin-panel: 'Administration'
+settings.ssh-key-exists: La clé SSH existe déjà
+gist.delete.confirm: Voulez-vous supprimer ce Gist ?
+
+# Création de gist anonyme (paramètres admin)
+admin.allow-anonymous-create: Autoriser la création de gists anonymes
+admin.allow-anonymous-create_help: Permet aux visiteurs sans compte de créer des gists. Ils reçoivent un token unique pour éditer ou supprimer leur gist.
+admin.anonymous-gist-in-feed: Afficher les gists anonymes dans le fil public
+admin.anonymous-gist-in-feed_help: Inclure les gists anonymes dans le fil de découverte public. Par défaut ils sont non-listés (accessibles par URL uniquement).
+admin.anonymous-gist-ttl: Durée de vie des gists anonymes (minutes)
+admin.anonymous-gist-ttl_help: Suppression automatique des gists anonymes après cette durée d'inactivité. Mettre 0 pour désactiver la suppression automatique.
+
+# Interface gist anonyme
+gist.anon.confirmation: Gist créé !
+gist.anon.gist-created: Votre gist a été créé avec succès.
+gist.anon.gist-url: URL du gist
+gist.anon.save-token-warning: Sauvegardez ces liens — ils ne seront plus affichés
+gist.anon.token-explanation: Ces liens sont le seul moyen de modifier ou supprimer votre gist. Toute personne les possédant peut modifier ou supprimer le gist.
+gist.anon.edit-link: Lien d'édition
+gist.anon.delete-link: Lien de suppression
+gist.anon.copy-links: Copier les deux liens
+gist.anon.view-gist: Voir le gist
+gist.anon.create-another: Créer un autre gist
+gist.anon.delete-confirm: Supprimer le gist anonyme
+gist.anon.delete-warning: Cette action est irréversible
+gist.anon.delete-irreversible: Vous allez supprimer définitivement le gist :
+gist.anon.delete-confirm-button: Oui, supprimer ce gist
+gist.anon.cancel: Annuler

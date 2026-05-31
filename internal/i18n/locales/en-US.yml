@@ -1,0 +1,411 @@
+gist.public: Public
+gist.unlisted: Unlisted
+gist.private: Private
+
+gist.header.like: Like
+gist.header.unlike: Unlike
+gist.header.fork: Fork
+gist.header.edit: Edit
+gist.header.delete: Delete
+gist.header.forked-from: Forked from
+gist.header.last-active: Last active
+gist.header.select-tab: Select a tab
+gist.header.code: Code
+gist.header.revisions: Revisions
+gist.header.revision: Revision
+gist.header.clone-http: Clone via %s
+gist.header.clone-http-help: Clone with Git using HTTP basic authentication.
+gist.header.clone-ssh: Clone via SSH
+gist.header.clone-ssh-help: Clone with Git using an SSH key.
+gist.header.embed: Embed
+gist.header.embed-help: Embed this gist to your website.
+gist.header.download-zip: Download ZIP
+
+gist.raw: Raw
+gist.file-truncated: This file has been truncated.
+gist.files-truncated: Not all files in this gist are not displayed. Clone or download the gist to see them all.
+gist.file-raw: This file can't be rendered.
+gist.file-binary-edit: This file is binary.
+gist.watch-full-file: View the full file.
+gist.file-not-valid: This file is not a valid CSV file.
+gist.no-content: No files found
+gist.preview-non-available: Preview not available
+
+gist.new.new_gist: New gist
+gist.new.title: Title
+gist.new.description: Description
+gist.new.url: URL
+gist.new.filename-with-extension: Filename with extension
+gist.new.indent-mode: Indent mode
+gist.new.indent-mode-space: Space
+gist.new.indent-mode-tab: Tab
+gist.new.indent-size: Indent size
+gist.new.wrap-mode: Wrap mode
+gist.new.wrap-mode-no: No wrap
+gist.new.wrap-mode-soft: Soft wrap
+gist.new.add-file: Add file
+gist.new.create-public-button: Create public gist
+gist.new.create-unlisted-button: Create unlisted gist
+gist.new.create-private-button: Create private gist
+gist.new.preview: Preview
+gist.new.create-a-new-gist: Create a new gist
+gist.new.topics: Topics (separate with spaces)
+gist.new.drop-files: Drop files here or click to upload
+gist.new.any-file-type: Upload any file type
+
+gist.edit.editing: Editing
+gist.edit.edit-gist: Edit %s
+gist.edit.change-visibility: Make
+gist.edit.delete: Delete
+gist.edit.cancel: Cancel
+gist.edit.save: Save
+gist.delete.confirm: Are you sure you want to delete this gist ?
+
+gist.list.joined: Joined
+gist.list.all: All gists
+gist.list.search-results: Search results
+gist.list.sort: Sort
+gist.list.sort-by-created: created
+gist.list.sort-by-updated: updated
+gist.list.order-by-asc: Least recently
+gist.list.order-by-desc: Recently
+gist.list.select-tab: Select a tab
+gist.list.liked: Liked
+gist.list.likes: likes
+gist.list.forked: Forked
+gist.list.forked-from: Forked from
+gist.list.forks: forks
+gist.list.files: files
+gist.list.last-active: Last active
+gist.list.no-gists: No gists
+gist.list.all-liked-by: All gists liked by %s
+gist.list.all-forked-by: All gists forked by %s
+gist.list.all-from: All gists from %s
+gist.list.topic-results-topic: All gists matching topic %s
+gist.list.topic-results: All gists matching topic
+
+
+gist.search.found: gists found
+gist.search.no-results: No gists found
+gist.search.help.user: gists created by user
+gist.search.help.title: gists with given title
+gist.search.help.description: gists with given description
+gist.search.help.filename: gists having files with given name
+gist.search.help.extension: gists having files with given extension
+gist.search.help.language: gists having files with given language
+gist.search.help.topic: gists with given topic
+gist.search.help.all: search all fields
+gist.search.placeholder.title: Title
+gist.search.placeholder.visibility: Visibility
+gist.search.placeholder.public: Public
+gist.search.placeholder.unlisted: Unlisted
+gist.search.placeholder.private: Private
+gist.search.placeholder.language: Language
+gist.search.placeholder.all: All
+gist.search.placeholder.topics: Topics
+gist.search.placeholder.search: Search
+
+gist.forks: Forks
+gist.forks.view: View fork
+gist.forks.no: No public forks
+gist.forks.for: Forks for %s
+
+gist.likes: Likes
+gist.likes.no: No likes yet
+gist.likes.for: Likes for %s
+
+gist.revisions: Revisions
+gist.revision.revised: revised this gist
+gist.revision.go-to-revision: Go to revision
+gist.revision.file-created: file created
+gist.revision.file-deleted: file deleted
+gist.revision.file-renamed: renamed to
+gist.revision.diff-truncated: Diff is too large to be shown
+gist.revision.file-renamed-no-changes: File renamed without changes
+gist.revision.empty-file: Empty file
+gist.revision.binary-file-changes: Binary file changes are not shown
+gist.revision.no-changes: No changes
+gist.revision.no-revisions: No revisions to show
+gist.revision-of: Revision of %s
+
+settings: Settings
+settings.email: Email
+settings.email-help: Used for commits and Gravatar
+settings.email-set: Set email
+settings.link-accounts: Link accounts
+settings.link-github-account: Link GitHub account
+settings.link-gitlab-account: Link GitLab account
+settings.link-gitea-account: Link Gitea account
+settings.unlink-github-account: Unlink GitHub account
+settings.unlink-gitlab-account: Unlink GitLab account
+settings.unlink-gitea-account: Unlink Gitea account
+settings.delete-account: Delete account
+settings.delete-account-confirm: Are you sure you want to delete your account ?
+settings.add-ssh-key: Add SSH key
+settings.add-ssh-key-help: Used only to pull/push gists using Git via SSH
+settings.add-ssh-key-title: Title
+settings.add-ssh-key-content: Key
+settings.delete-ssh-key: Delete
+settings.delete-ssh-key-confirm: Confirm deletion of SSH key
+settings.ssh-key-added-at: Added
+settings.ssh-key-never-used: Never used
+settings.ssh-key-last-used: Last used
+settings.ssh-key-exists: SSH key already exists
+settings.change-username: Change username
+settings.create-password: Create password
+settings.create-password-help: Create your password to login to Opengist via HTTP
+settings.change-password: Change password
+settings.change-password-help: Change your password to login to Opengist via HTTP
+settings.password-label-title: Password
+settings.header.account: Account
+settings.header.mfa: MFA
+settings.header.ssh: SSH
+settings.header.tokens: Access tokens
+settings.header.style: Style
+settings.style.gist-code: Gist code
+settings.style.no-soft-wrap: No Soft Wrap
+settings.style.soft-wrap: Soft Wrap
+settings.style.removed-lines-color: Removed lines color
+settings.style.added-lines-color: Added lines color
+settings.style.git-lines-color: Git lines color
+settings.style.save-style: Save style
+settings.style.theme: Theme
+settings.style.theme-light: Light
+settings.style.theme-dark: Dark
+settings.style.theme-auto: Auto
+settings.create-token: Create access token
+settings.create-token-help: Access tokens can be used to access the API
+settings.token-name: Name
+settings.token-permissions: Permissions
+settings.token-gist-permission: Gists
+settings.token-user-permission: User
+settings.token-user-permission-help: Read user info (required for /api/v1/user)
+settings.token-permission-none: No access
+settings.token-permission-read: Read
+settings.token-permission-read-write: Read & Write
+settings.delete-token: Delete
+settings.delete-token-confirm: Confirm deletion of access token
+settings.token-created-at: Created
+settings.token-never-used: Never used
+settings.token-last-used: Last used
+settings.token-expiration: Expiration
+settings.token-expiration-help: Leave empty for no expiration
+settings.token-expires-at: Expires
+settings.token-no-expiration: No expiration
+settings.token-expired: expired
+settings.token-created: Token created, make sure to copy it now, you won't be able to see it again!
+settings.token-deleted: Access token deleted
+settings.api-disabled-warning: The REST API is currently disabled. Tokens you create here cannot be used until an administrator enables it.
+settings.api-disabled-go-admin: Open admin configuration
+
+auth.signup-disabled: Administrator has disabled signing up
+auth.login: Login
+auth.signup: Register
+auth.new-account: New account
+auth.username: Username
+auth.password: Password
+auth.register-instead: Register instead
+auth.login-instead: Login instead
+auth.oauth: Continue with %s account
+auth.oauth.no-provider: OAuth provider not found
+auth.oauth.complete-registration: Complete your registration
+auth.oauth.complete-registration-button: Create account
+auth.oauth.signing-in-with: Signing in with %s
+auth.oauth.cancel: Cancel
+auth.oauth.existing-account: Existing account?
+auth.oauth.already-have-account: If you already have an Opengist account, login first and link your %s account from your settings.
+auth.mfa: Multi-factor authentication
+auth.mfa.passkey: Passkey
+auth.mfa.passkeys: Passkeys
+auth.mfa.use-passkey: Use passkey
+auth.mfa.bind-passkey: Bind passkey
+auth.mfa.login-with-passkey: Login with passkey
+auth.mfa.waiting-for-passkey-input: Waiting for input from browser interaction...
+auth.mfa.use-passkey-to-finish: Use a passkey to finish authentication
+auth.mfa.passkeys-help: Add a passkey to log to your account and to use as an MFA method.
+auth.mfa.passkey-name: Name
+auth.mfa.delete-passkey: Delete
+auth.mfa.passkey-added-at: Added
+auth.mfa.passkey-never-used: Never used
+auth.mfa.passkey-last-used: Last used
+auth.mfa.delete-passkey-confirm: Confirm deletion of passkey
+auth.totp: Time based one-time password (TOTP)
+auth.totp.help: TOTP is a two-factor authentication method that uses a shared secret to generate a one-time password.
+auth.totp.use: Use TOTP
+auth.totp.regenerate-recovery-codes: Regenerate recovery codes
+auth.totp.already-enabled: TOTP is already enabled
+auth.totp.invalid-secret: Invalid TOTP secret
+auth.totp.invalid-code: Invalid TOTP code
+auth.totp.code-used: The recovery code %s was used, it is now invalid. You may want to disable MFA for now or regenerate your codes.
+auth.totp.disabled: TOTP successfully disabled
+auth.totp.disable: Disable TOTP
+auth.totp.enter-code: Enter the code from the Authenticator app
+auth.totp.enter-recovery-key: or a recovery key if you lost your device
+auth.totp.code: Code
+auth.totp.submit: Submit
+auth.totp.proceed: Proceed
+auth.totp.save-recovery-codes: Save your recovery codes in a safe place. You can use these codes to recover access to your account if you lose access to your authenticator app.
+auth.totp.scan-qr-code: Scan the QR code below with your authenticator app to enable two-factor authentication or enter the following string, then confirm with the generated code.
+
+
+error: Error
+error.page-not-found: Page not found
+error.bad-request: Bad request
+error.signup-disabled: Signing up is disabled
+error.signup-disabled-form: Signing up via registration form is disabled
+error.login-disabled-form: Logging in via login form is disabled
+error.complete-oauth-login: "Cannot complete user auth: %s"
+error.oauth-unsupported: Unsupported OAuth2 provider
+error.cannot-bind-data: Cannot bind data
+error.invalid-number: Invalid number
+error.invalid-character-unescaped: Invalid character unescaped
+error.not-in-mfa-session: User is not in a MFA session
+error.no-file-uploaded: No file uploaded
+error.cannot-open-file: Cannot open uploaded file
+
+header.menu.all: All
+header.menu.new: New
+header.menu.search: Search
+header.menu.my-gists: My gists
+header.menu.liked: Liked
+header.menu.admin: Admin
+header.menu.settings: Settings
+header.menu.logout: Logout
+header.menu.register: Register
+header.menu.login: Login
+header.menu.light: Light
+header.menu.dark: Dark
+header.menu.system: System
+footer.powered-by: Powered by %s
+
+pagination.older: Older
+pagination.newer: Newer
+pagination.previous: Previous
+pagination.next: Next
+
+admin.admin_panel: Admin panel
+admin.general: General
+admin.users: Users
+admin.gists: Gists
+admin.configuration: Configuration
+admin.invitations: Invitations
+admin.invitations.create: Create invitation
+admin.versions: Versions
+admin.ssh_keys: SSH keys
+admin.stats: Stats
+admin.actions: Actions
+admin.actions.sync-fs: Synchronize gists from filesystem
+admin.actions.sync-db: Synchronize gists from database
+admin.actions.git-gc: Garbage collect all git repositories
+admin.actions.sync-previews: Synchronize all gists previews
+admin.actions.reset-hooks: Reset Git server hooks for all repositories
+admin.actions.index-gists: Rebuild search index
+admin.actions.sync-gist-languages: Synchronize all gists languages
+admin.id: ID
+admin.user: User
+admin.delete: Delete
+admin.created_at: Created
+
+admin.config-link: This configuration can be %s by a YAML config file and/or environment variables.
+admin.config-link-overriden: overridden
+admin.disable-signup: Disable signup
+admin.disable-signup_help: Forbid the creation of new accounts.
+admin.require-login: Require login
+admin.require-login_help: Enforce users to be logged in to see gists.
+admin.allow-gists-without-login: Allow individual gists without login
+admin.allow-gists-without-login_help: Allow individual gists to be viewed and downloaded without login, while requiring login for discovering gists.
+admin.disable-login: Disable login form
+admin.disable-login_help: Forbid logging in via the login form to force using OAuth providers instead.
+admin.disable-gravatar: Disable Gravatar
+admin.disable-gravatar_help: Disable the usage of Gravatar as an avatar provider.
+admin.api-enabled: Enable REST API at /api/v1
+admin.api-enabled_help: Allow programmatic access to gists and user info via Personal Access Tokens.
+
+admin.users.delete_confirm: Do you want to delete this user ?
+
+admin.gists.title: Title
+admin.gists.private: Private ?
+admin.gists.nb-files: Nb. files
+admin.gists.nb-likes: Nb. likes
+admin.gists.delete_confirm: Do you want to delete this gist ?
+
+admin.invitations.help: Invitations can be used to create an account even if signing up is disabled.
+admin.invitations.max_uses: Max uses
+admin.invitations.expires_at: Expires at
+admin.invitations.code: Code
+admin.invitations.copy_link: Copy link
+admin.invitations.uses: Uses
+admin.invitations.expired: Expired
+admin.invitations.delete_confirm: Do you want to delete this invitation ?
+
+flash.admin.user-deleted: User has been deleted
+flash.admin.gist-deleted: Gist has been deleted
+flash.admin.invitation-created: Invitation has been created
+flash.admin.invitation-deleted: Invitation has been deleted
+flash.admin.sync-fs: Syncing repositories from filesystem...
+flash.admin.sync-db: Syncing repositories from database...
+flash.admin.git-gc: Garbage collecting repositories...
+flash.admin.sync-previews: Syncing Gist previews...
+flash.admin.reset-hooks: Resetting Git server hooks for all repositories...
+flash.admin.index-gists: Rebuilding search index...
+flash.admin.sync-gist-languages: Syncing Gist languages...
+
+flash.auth.username-exists: Username already exists
+flash.auth.invalid-credentials: Invalid credentials
+flash.auth.account-linked-oauth: Account linked to %s
+flash.auth.account-unlinked-oauth: Account unlinked from %s
+flash.auth.user-sshkeys-not-retrievable: Could not get user keys
+flash.auth.user-sshkeys-not-created: Could not create ssh key
+flash.auth.must-be-logged-in: You must be logged in to access gists
+flash.auth.passkey-registred: Passkey %s registered
+flash.auth.passkey-deleted: Passkey deleted
+flash.auth.oauth-session-expired: OAuth2 session expired, please try again
+flash.auth.oauth-already-linked: This %s account is already linked to another user
+
+flash.gist.visibility-changed: Gist visibility has been changed
+flash.gist.deleted: Gist has been deleted
+flash.gist.fork-own-gist: Unable to fork own gists
+flash.gist.forked: Gist has been forked
+
+flash.user.email-updated: Email updated
+flash.user.invalid-ssh-key: Invalid SSH key
+flash.user.ssh-key-added: SSH key added
+flash.user.ssh-key-deleted: SSH key deleted
+flash.user.password-updated: Password updated
+flash.user.username-updated: Username updated
+
+validation.is-too-long: Field %s is too long
+validation.should-not-be-empty: Field %s should not be empty
+validation.should-not-include-sub-directory: Field %s should not include a sub directory
+validation.should-only-contain-alphanumeric-characters: Field %s should only contain alphanumeric characters
+validation.should-only-contain-alphanumeric-characters-and-dashes: Field %s should only contain alphanumeric characters and dashes
+validation.not-enough: Not enough %s
+validation.invalid: Invalid %s
+validation.invalid-gist-topics: Invalid gist topics, they must start with a letter or number, consist of 50 characters or less, and can include hyphens
+
+html.title.admin-panel: Admin panel
+
+# Anonymous gist creation (admin settings)
+admin.allow-anonymous-create: Allow anonymous gist creation
+admin.allow-anonymous-create_help: Allow visitors without an account to create gists. They receive a unique token to edit or delete their gist.
+admin.anonymous-gist-in-feed: Show anonymous gists in public feed
+admin.anonymous-gist-in-feed_help: Include anonymous gists in the public discovery feed. By default they are unlisted (accessible by URL only).
+admin.anonymous-gist-ttl: Anonymous gist TTL (minutes)
+admin.anonymous-gist-ttl_help: Automatically delete anonymous gists after this many minutes of inactivity. Set to 0 to disable automatic deletion.
+
+# Anonymous gist UI
+gist.anon.confirmation: Gist created!
+gist.anon.gist-created: Your gist has been created successfully.
+gist.anon.gist-url: Gist URL
+gist.anon.save-token-warning: Save these links — they will not be shown again
+gist.anon.token-explanation: These links are the only way to edit or delete your gist. Anyone with them can modify or delete it.
+gist.anon.edit-link: Edit link
+gist.anon.delete-link: Delete link
+gist.anon.copy-links: Copy both links
+gist.anon.view-gist: View gist
+gist.anon.create-another: Create another gist
+gist.anon.delete-confirm: Delete anonymous gist
+gist.anon.delete-warning: This action is irreversible
+gist.anon.delete-irreversible: You are about to permanently delete the gist:
+gist.anon.delete-confirm-button: Yes, delete this gist
+gist.anon.cancel: Cancel
