@@ -179,9 +179,12 @@
                     <span class="text-sm font-medium leading-6 text-slate-700 dark:text-slate-300">{{ .locale.Tr "admin.anonymous-gist-ttl" }}</span>
                     <span class="text-sm text-gray-400 dark:text-gray-400">{{ .locale.Tr "admin.anonymous-gist-ttl_help" }}</span>
                 </span>
-                <input type="number" id="anonymous-gist-ttl" name="anonymous-gist-ttl" value="{{ .AnonymousGistTTL }}" min="0"
-                    class="ml-4 w-24 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm text-gray-900 dark:text-gray-100 focus:ring-primary-600"
-                    onchange="setSetting('anonymous-gist-ttl', this.value)" onblur="setSetting('anonymous-gist-ttl', this.value)" />
+                <div class="ml-4 flex items-center gap-2">
+                    <input type="number" id="anonymous-gist-ttl" name="anonymous-gist-ttl" value="{{ .AnonymousGistTTL }}" min="0"
+                        class="w-24 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm text-gray-900 dark:text-gray-100 focus:ring-primary-600" />
+                    <button type="button" onclick="setSetting('anonymous-gist-ttl', document.getElementById('anonymous-gist-ttl').value).then(() => { this.textContent = '✓'; setTimeout(() => this.textContent = 'Sauvegarder', 1500); })"
+                        class="px-3 py-1 text-sm rounded bg-primary-600 text-white hover:bg-primary-700">Sauvegarder</button>
+                </div>
             </li>
         </ul>
         {{ .csrfHtml }}

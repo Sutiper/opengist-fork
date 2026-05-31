@@ -546,7 +546,11 @@ func anonGistInit(next Handler) Handler {
 			gistName = strings.TrimSuffix(gistName, ".json")
 		}
 
+		// Try by UUID first, then by URL (custom slug)
 		gist, err := db.GetGistByUUID(gistName)
+		if err != nil {
+			gist, err = db.GetAnonymousGistByIdentifier(gistName)
+		}
 		if err != nil || !gist.IsAnonymous() {
 			return ctx.NotFound("Gist not found")
 		}

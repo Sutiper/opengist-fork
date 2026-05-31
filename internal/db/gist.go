@@ -947,6 +947,16 @@ func (gist *Gist) RemoveFromIndex() {
 	}()
 }
 
+// GetAnonymousGistByIdentifier finds an anonymous gist by UUID or custom URL.
+func GetAnonymousGistByIdentifier(identifier string) (*Gist, error) {
+	gist := new(Gist)
+	err := db.Preload("User").
+		Where("(uuid LIKE ? OR url_normalized = ?) AND user_id IS NULL AND edit_token != ''",
+			strings.ToLower(identifier)+"%", strings.ToLower(identifier)).
+		First(gist).Error
+	return gist, err
+}
+
 func GetAllAnonymousGists(gists *[]*Gist) error {
 	return db.Where("user_id IS NULL AND edit_token != ''").Find(gists).Error
 }
