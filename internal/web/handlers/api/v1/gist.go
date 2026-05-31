@@ -289,7 +289,7 @@ func CreateGist(ctx *context.Context) error {
 		Title:       req.Title,
 		Description: req.Description,
 		Private:     visibility,
-		UserID:      user.ID,
+		UserID:      &user.ID,
 		User:        *user,
 		NbFiles:     len(fileDTOs),
 	}

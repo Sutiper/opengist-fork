@@ -41,7 +41,7 @@ func Fork(ctx *context.Context) error {
 		PreviewFilename: gist.PreviewFilename,
 		Description:     gist.Description,
 		Private:         gist.Private,
-		UserID:          currentUser.ID,
+		UserID:          &currentUser.ID,
 		ForkedID:        gist.ID,
 		NbFiles:         gist.NbFiles,
 		Topics:          gist.Topics,
