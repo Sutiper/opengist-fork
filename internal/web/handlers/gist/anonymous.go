@@ -5,6 +5,17 @@ import (
 	"github.com/thomiceli/opengist/internal/web/context"
 )
 
+// loadAnonGist loads an anonymous gist by edit token and restores the virtual
+// "anonymous" user needed for git operations (UserID is nil in DB).
+func loadAnonGist(token string) (*db.Gist, error) {
+	gist, err := loadAnonGist(token)
+	if err != nil {
+		return nil, err
+	}
+	gist.User = db.User{Username: "anonymous"}
+	return gist, nil
+}
+
 // AnonConfirm shows the confirmation page after anonymous gist creation.
 // The edit token is displayed here — it's the only time it's shown.
 func AnonConfirm(ctx *context.Context) error {
@@ -13,7 +24,7 @@ func AnonConfirm(ctx *context.Context) error {
 		return ctx.NotFound("Token not found")
 	}
 
-	gist, err := db.GetGistByEditToken(token)
+	gist, err := loadAnonGist(token)
 	if err != nil {
 		return ctx.NotFound("Gist not found")
 	}
@@ -31,7 +42,7 @@ func AnonEdit(ctx *context.Context) error {
 		return ctx.NotFound("Token not found")
 	}
 
-	gist, err := db.GetGistByEditToken(token)
+	gist, err := loadAnonGist(token)
 	if err != nil {
 		return ctx.NotFound("Gist not found")
 	}
@@ -62,10 +73,13 @@ func AnonProcessEdit(ctx *context.Context) error {
 		return ctx.NotFound("Token not found")
 	}
 
-	gist, err := db.GetGistByEditToken(token)
+	gist, err := loadAnonGist(token)
 	if err != nil {
 		return ctx.NotFound("Gist not found")
 	}
+
+	// Restore virtual user for git operations (not stored in DB)
+	gist.User = db.User{Username: "anonymous"}
 
 	ctx.SetData("gist", gist)
 	ctx.SetData("token", token)
@@ -79,7 +93,7 @@ func AnonDelete(ctx *context.Context) error {
 		return ctx.NotFound("Token not found")
 	}
 
-	gist, err := db.GetGistByEditToken(token)
+	gist, err := loadAnonGist(token)
 	if err != nil {
 		return ctx.NotFound("Gist not found")
 	}
@@ -97,7 +111,7 @@ func AnonProcessDelete(ctx *context.Context) error {
 		return ctx.NotFound("Token not found")
 	}
 
-	gist, err := db.GetGistByEditToken(token)
+	gist, err := loadAnonGist(token)
 	if err != nil {
 		return ctx.NotFound("Gist not found")
 	}

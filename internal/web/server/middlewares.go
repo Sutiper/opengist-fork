@@ -551,6 +551,9 @@ func anonGistInit(next Handler) Handler {
 			return ctx.NotFound("Gist not found")
 		}
 
+		// Restore virtual user for git operations (UserID is nil for anonymous gists)
+		gist.User = db.User{Username: "anonymous"}
+
 		ctx.SetData("gist", gist)
 		return next(ctx)
 	}

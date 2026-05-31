@@ -342,6 +342,10 @@ func GetAllGistsByIds(ids []uint) ([]*Gist, error) {
 
 func (gist *Gist) Create() error {
 	// avoids foreign key constraint error because the default value in the struct is 0
+	// For anonymous gists: omit User association to avoid FK constraint on non-existent user
+	if gist.UserID == nil {
+		return db.Omit("forked_id", "User").Create(&gist).Error
+	}
 	return db.Omit("forked_id").Create(&gist).Error
 }
 

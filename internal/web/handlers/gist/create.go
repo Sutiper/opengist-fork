@@ -173,13 +173,15 @@ func ProcessCreate(ctx *context.Context) error {
 				return ctx.ErrorRes(500, "Error generating edit token", err)
 			}
 			gist.EditToken = token
+			// Keep UserID nil so IsAnonymous() works
+			gist.UserID = nil
 
 			// Force visibility: anonymous gists cannot be private
 			if gist.Private == db.PrivateVisibility {
 				gist.Private = db.UnlistedVisibility
 			}
 
-			// Use anonymous virtual user for git operations
+			// Use anonymous virtual user for git operations only (not saved to DB)
 			gist.User = db.User{Username: "anonymous"}
 		}
 	}
@@ -216,7 +218,9 @@ func ProcessCreate(ctx *context.Context) error {
 		return ctx.ErrorRes(500, "Error updating preview and count", err)
 	}
 
-	if gist.IsAnonymous() {
+	// Use EditToken to detect anonymous gists — more reliable than IsAnonymous()
+	// after GORM Create() which may set UserID=0 instead of nil
+	if gist.EditToken != "" {
 		return ctx.RedirectTo("/anon/confirm/" + gist.EditToken)
 	}
 	return ctx.RedirectTo("/" + user.Username + "/" + gist.Identifier())
