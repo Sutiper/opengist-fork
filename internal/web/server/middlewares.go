@@ -206,9 +206,9 @@ func checkAllowAnonymousCreate(next Handler) Handler {
 			return next(ctx)
 		}
 
-		// Not allowed: redirect to login (consistent with RequireLogin behaviour)
+		// Not allowed — redirect to /all (avoids loop when login form is disabled)
 		ctx.AddFlash(ctx.Tr("flash.auth.must-be-logged-in"), "error")
-		return ctx.RedirectTo("/login")
+		return ctx.RedirectTo("/all")
 	}
 }
 
@@ -355,10 +355,21 @@ func loadSettings(ctx *context.Context) error {
 		return err
 	}
 
+	// Settings that hold a numeric value instead of a bool
+	numericSettings := map[string]bool{
+		db.SettingAnonymousGistTTL: true,
+	}
+
 	for key, value := range settings {
 		s := strings.ReplaceAll(key, "-", " ")
 		s = cases.Title(language.English).String(s)
-		ctx.SetData(strings.ReplaceAll(s, " ", ""), value == "1")
+		key2 := strings.ReplaceAll(s, " ", "")
+		if numericSettings[key] {
+			// Store raw string value for numeric settings
+			ctx.SetData(key2, value)
+		} else {
+			ctx.SetData(key2, value == "1")
+		}
 	}
 	return nil
 }
