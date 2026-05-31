@@ -67,4 +67,5 @@ COPY --from=build --chown=opengist:opengist /opengist/docker ./docker
 EXPOSE 6157 6158 2222
 VOLUME /opengist
 HEALTHCHECK --interval=60s --timeout=30s --start-period=15s --retries=3 CMD curl -f http://localhost:6157/healthcheck || exit 1
+RUN chmod +x ./docker/entrypoint.sh
 ENTRYPOINT ["./docker/entrypoint.sh"]
