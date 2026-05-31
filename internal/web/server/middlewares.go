@@ -191,16 +191,24 @@ func logged(next Handler) Handler {
 
 // checkAllowAnonymousCreate allows unauthenticated users to access the create
 // page if the admin setting "allow-anonymous-create" is enabled.
-// If disabled, it falls back to the standard "logged" behaviour.
+// It also reads the setting directly from DB to bypass any caching issue,
+// and ignores RequireLogin for this specific route when anonymous create is on.
 func checkAllowAnonymousCreate(next Handler) Handler {
 	return func(ctx *context.Context) error {
+		// Logged-in users always pass through
 		if ctx.User != nil {
 			return next(ctx)
 		}
-		if ctx.GetData("AllowAnonymousCreate") == true {
+
+		// Read directly from DB to avoid any context-loading race
+		val, err := db.GetSetting(db.SettingAllowAnonymousCreate)
+		if err == nil && val == "1" {
 			return next(ctx)
 		}
-		return ctx.RedirectTo("/all")
+
+		// Not allowed: redirect to login (consistent with RequireLogin behaviour)
+		ctx.AddFlash(ctx.Tr("flash.auth.must-be-logged-in"), "error")
+		return ctx.RedirectTo("/login")
 	}
 }
 
