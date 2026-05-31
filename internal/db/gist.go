@@ -946,3 +946,7 @@ func (gist *Gist) RemoveFromIndex() {
 		}
 	}()
 }
+
+func GetAllAnonymousGists(gists *[]*Gist) error {
+	return db.Where("user_id IS NULL AND edit_token != ''").Find(gists).Error
+}

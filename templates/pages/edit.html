@@ -22,7 +22,7 @@
                                 <div class="rounded-md dark:bg-gray-800 bg-white shadow-lg ring-1 ring-gray-50 dark:ring-gray-700 focus:outline-none" role="none" style="word-break: keep-all">
                                     <span class="text-gray-700 block px-4 py-2 text-sm cursor-pointer dark:text-slate-300 hover:text-slate-500 dark:hover:text-slate-400 gist-visibility-option" data-btntext="{{ .locale.Tr "gist.edit.change-visibility" }} {{ .locale.Tr "gist.public" }}" data-visibility="0" role="menuitem">{{ .locale.Tr "gist.public" }}</span>
                                     <span class="text-gray-700 block px-4 py-2 text-sm cursor-pointer dark:text-slate-300 hover:text-slate-500 dark:hover:text-slate-400 gist-visibility-option" data-btntext="{{ .locale.Tr "gist.edit.change-visibility" }} {{ .locale.Tr "gist.unlisted" }}" data-visibility="1" role="menuitem">{{ .locale.Tr "gist.unlisted" }}</span>
-                                    <span class="text-gray-700 block px-4 py-2 text-sm cursor-pointer dark:text-slate-300 hover:text-slate-500 dark:hover:text-slate-400 gist-visibility-option" data-btntext="{{ .locale.Tr "gist.edit.change-visibility" }} {{ .locale.Tr "gist.private" }}" data-visibility="2" role="menuitem">{{ .locale.Tr "gist.private" }}</span>
+                                    {{ if .userLogged }}<span class="text-gray-700 block px-4 py-2 text-sm cursor-pointer dark:text-slate-300 hover:text-slate-500 dark:hover:text-slate-400 gist-visibility-option" data-btntext="{{ .locale.Tr "gist.edit.change-visibility" }} {{ .locale.Tr "gist.private" }}" data-visibility="2" role="menuitem">{{ .locale.Tr "gist.private" }}</span>{{ end }}
                                 </div>
                             </div>
                         </div>

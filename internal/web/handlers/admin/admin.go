@@ -202,3 +202,24 @@ func AdminInvitationsDelete(ctx *context.Context) error {
 	ctx.AddFlash(ctx.Tr("flash.admin.invitation-deleted"), "success")
 	return ctx.RedirectTo("/admin-panel/invitations")
 }
+
+func AdminPurgeAnonymousGists(ctx *context.Context) error {
+	var gists []*db.Gist
+	err := db.GetAllAnonymousGists(&gists)
+	if err != nil {
+		return ctx.ErrorRes(500, "Cannot retrieve anonymous gists", err)
+	}
+
+	deleted := 0
+	for _, gist := range gists {
+		gist.User = db.User{Username: "anonymous"}
+		if err := gist.Delete(); err != nil {
+			continue
+		}
+		gist.RemoveFromIndex()
+		deleted++
+	}
+
+	ctx.AddFlash(ctx.Tr("flash.admin.anonymous-gists-purged", deleted), "success")
+	return ctx.RedirectTo("/admin-panel/gists")
+}

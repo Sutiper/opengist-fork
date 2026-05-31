@@ -1,7 +1,14 @@
 package gist
 
 import (
+	"net/url"
+	"strconv"
+	"strings"
+
 	"github.com/thomiceli/opengist/internal/db"
+	"github.com/thomiceli/opengist/internal/git"
+	"github.com/thomiceli/opengist/internal/i18n"
+	"github.com/thomiceli/opengist/internal/validator"
 	"github.com/thomiceli/opengist/internal/web/context"
 )
 
@@ -65,6 +72,7 @@ func AnonEdit(ctx *context.Context) error {
 }
 
 // AnonProcessEdit handles POST for anonymous gist editing.
+// Does NOT reuse ProcessCreate to avoid isCreate confusion.
 func AnonProcessEdit(ctx *context.Context) error {
 	token := ctx.Param("token")
 	if token == "" {
@@ -76,9 +84,69 @@ func AnonProcessEdit(ctx *context.Context) error {
 		return ctx.NotFound("Gist not found")
 	}
 
-	ctx.SetData("gist", gist)
-	ctx.SetData("token", token)
-	return ProcessCreate(ctx)
+	dto := new(db.GistDTO)
+	if err := ctx.Bind(dto); err != nil {
+		return ctx.ErrorRes(400, ctx.Tr("error.cannot-bind-data"), err)
+	}
+
+	dto.Files = make([]db.FileDTO, 0)
+	names := dto.Name
+	contents := dto.Content
+
+	for i, content := range contents {
+		if content == "" {
+			continue
+		}
+		name := git.CleanTreePathName(names[i])
+		if name == "" {
+			name = "gistfile" + strconv.Itoa(len(dto.Files)+1) + ".txt"
+		}
+		escapedValue, err := url.PathUnescape(content)
+		if err != nil {
+			return ctx.ErrorRes(400, ctx.Tr("error.invalid-character-unescaped"), err)
+		}
+		dto.Files = append(dto.Files, db.FileDTO{
+			Filename: strings.TrimSpace(name),
+			Content:  escapedValue,
+		})
+	}
+
+	ctx.SetData("dto", dto)
+
+	if err := ctx.Validate(dto); err != nil {
+		ctx.AddFlash(validator.ValidationMessages(&err, ctx.GetData("locale").(*i18n.Locale)), "error")
+		files, _, _ := gist.Files("HEAD", false)
+		ctx.SetData("gist", gist)
+		ctx.SetData("files", files)
+		ctx.SetData("token", token)
+		return ctx.HtmlWithCode(400, "edit.html")
+	}
+
+	gist = dto.ToExistingGist(gist)
+	gist.User = db.User{Username: "anonymous"}
+	gist.NbFiles = len(dto.Files)
+
+	if gist.Title == "" {
+		if len(dto.Files) > 0 && dto.Files[0].Filename != "" {
+			gist.Title = dto.Files[0].Filename
+		}
+	}
+
+	if err := gist.AddAndCommitFiles(&dto.Files); err != nil {
+		return ctx.ErrorRes(500, "Error adding and committing files", err)
+	}
+
+	if err := gist.Update(); err != nil {
+		return ctx.ErrorRes(500, "Error updating the gist", err)
+	}
+
+	gist.AddInIndex()
+	gist.UpdateLanguages()
+	if err := gist.UpdatePreviewAndCount(true); err != nil {
+		return ctx.ErrorRes(500, "Error updating preview and count", err)
+	}
+
+	return ctx.RedirectTo("/anon/confirm/" + token)
 }
 
 // AnonDelete renders the delete confirmation page for an anonymous gist.

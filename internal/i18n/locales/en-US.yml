@@ -409,3 +409,4 @@ gist.anon.delete-warning: This action is irreversible
 gist.anon.delete-irreversible: "You are about to permanently delete the gist:"
 gist.anon.delete-confirm-button: Yes, delete this gist
 gist.anon.cancel: Cancel
+flash.admin.anonymous-gists-purged: "%d anonymous gist(s) deleted"

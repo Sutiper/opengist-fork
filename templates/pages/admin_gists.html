@@ -39,5 +39,14 @@
     </table>
 </div>
 
+<div class="mt-4">
+    <form action="{{ $.c.ExternalUrl }}/admin-panel/gists/purge-anonymous" method="POST" onsubmit="return confirm('Supprimer tous les gists anonymes ?')">
+        {{ .csrfHtml }}
+        <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700">
+            Purger les gists anonymes
+        </button>
+    </form>
+</div>
+
 {{ template "admin_footer" .}}
 {{ template "footer" .}}

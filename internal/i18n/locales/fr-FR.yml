@@ -284,3 +284,4 @@ gist.anon.delete-warning: Cette action est irréversible
 gist.anon.delete-irreversible: "Vous allez supprimer définitivement le gist :"
 gist.anon.delete-confirm-button: Oui, supprimer ce gist
 gist.anon.cancel: Annuler
+flash.admin.anonymous-gists-purged: "%d gist(s) anonyme(s) supprimé(s)"

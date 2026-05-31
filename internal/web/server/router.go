@@ -86,6 +86,7 @@ func (s *Server) registerRoutes() {
 			sB.POST("/users/:user/delete", admin.AdminUserDelete)
 			sB.GET("/gists", admin.AdminGists)
 			sB.POST("/gists/:gist/delete", admin.AdminGistDelete)
+			sB.POST("/gists/purge-anonymous", admin.AdminPurgeAnonymousGists)
 			sB.GET("/invitations", admin.AdminInvitations)
 			sB.POST("/invitations", admin.AdminInvitationsCreate)
 			sB.POST("/invitations/:id/delete", admin.AdminInvitationsDelete)
