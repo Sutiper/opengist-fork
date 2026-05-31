@@ -398,7 +398,7 @@ gist.anon.confirmation: Gist created!
 gist.anon.gist-created: Your gist has been created successfully.
 gist.anon.gist-url: Gist URL
 gist.anon.save-token-warning: Save these links — they will not be shown again
-gist.anon.token-explanation: These links are the only way to edit or delete your gist. Anyone with them can modify or delete it.
+gist.anon.token-explanation: "These links are the only way to edit or delete your gist. Anyone with them can modify or delete it."
 gist.anon.edit-link: Edit link
 gist.anon.delete-link: Delete link
 gist.anon.copy-links: Copy both links
@@ -406,6 +406,6 @@ gist.anon.view-gist: View gist
 gist.anon.create-another: Create another gist
 gist.anon.delete-confirm: Delete anonymous gist
 gist.anon.delete-warning: This action is irreversible
-gist.anon.delete-irreversible: You are about to permanently delete the gist:
+gist.anon.delete-irreversible: "You are about to permanently delete the gist:"
 gist.anon.delete-confirm-button: Yes, delete this gist
 gist.anon.cancel: Cancel

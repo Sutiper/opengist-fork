@@ -273,7 +273,7 @@ gist.anon.confirmation: Gist créé !
 gist.anon.gist-created: Votre gist a été créé avec succès.
 gist.anon.gist-url: URL du gist
 gist.anon.save-token-warning: Sauvegardez ces liens — ils ne seront plus affichés
-gist.anon.token-explanation: Ces liens sont le seul moyen de modifier ou supprimer votre gist. Toute personne les possédant peut modifier ou supprimer le gist.
+gist.anon.token-explanation: "Ces liens sont le seul moyen de modifier ou supprimer votre gist. Toute personne les possédant peut modifier ou supprimer le gist."
 gist.anon.edit-link: Lien d'édition
 gist.anon.delete-link: Lien de suppression
 gist.anon.copy-links: Copier les deux liens
@@ -281,6 +281,6 @@ gist.anon.view-gist: Voir le gist
 gist.anon.create-another: Créer un autre gist
 gist.anon.delete-confirm: Supprimer le gist anonyme
 gist.anon.delete-warning: Cette action est irréversible
-gist.anon.delete-irreversible: Vous allez supprimer définitivement le gist :
+gist.anon.delete-irreversible: "Vous allez supprimer définitivement le gist :"
 gist.anon.delete-confirm-button: Oui, supprimer ce gist
 gist.anon.cancel: Annuler
