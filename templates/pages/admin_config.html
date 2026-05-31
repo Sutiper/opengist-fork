@@ -181,7 +181,7 @@
                 </span>
                 <input type="number" id="anonymous-gist-ttl" name="anonymous-gist-ttl" value="{{ .AnonymousGistTTL }}" min="0"
                     class="ml-4 w-24 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm text-gray-900 dark:text-gray-100 focus:ring-primary-600"
-                    onchange="updateSetting('anonymous-gist-ttl', this.value)" />
+                    onchange="setSetting('anonymous-gist-ttl', this.value)" onblur="setSetting('anonymous-gist-ttl', this.value)" />
             </li>
         </ul>
         {{ .csrfHtml }}

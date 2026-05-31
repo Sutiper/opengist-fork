@@ -8,7 +8,7 @@ import (
 // loadAnonGist loads an anonymous gist by edit token and restores the virtual
 // "anonymous" user needed for git operations (UserID is nil in DB).
 func loadAnonGist(token string) (*db.Gist, error) {
-	gist, err := loadAnonGist(token)
+	gist, err := db.GetGistByEditToken(token)
 	if err != nil {
 		return nil, err
 	}
@@ -17,7 +17,6 @@ func loadAnonGist(token string) (*db.Gist, error) {
 }
 
 // AnonConfirm shows the confirmation page after anonymous gist creation.
-// The edit token is displayed here — it's the only time it's shown.
 func AnonConfirm(ctx *context.Context) error {
 	token := ctx.Param("token")
 	if token == "" {
@@ -66,7 +65,6 @@ func AnonEdit(ctx *context.Context) error {
 }
 
 // AnonProcessEdit handles POST for anonymous gist editing.
-// It reuses ProcessCreate with the gist pre-loaded in context.
 func AnonProcessEdit(ctx *context.Context) error {
 	token := ctx.Param("token")
 	if token == "" {
@@ -77,9 +75,6 @@ func AnonProcessEdit(ctx *context.Context) error {
 	if err != nil {
 		return ctx.NotFound("Gist not found")
 	}
-
-	// Restore virtual user for git operations (not stored in DB)
-	gist.User = db.User{Username: "anonymous"}
 
 	ctx.SetData("gist", gist)
 	ctx.SetData("token", token)
