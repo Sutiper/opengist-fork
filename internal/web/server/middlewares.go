@@ -355,21 +355,17 @@ func loadSettings(ctx *context.Context) error {
 		return err
 	}
 
-	// Settings that hold a numeric value instead of a bool
-	numericSettings := map[string]bool{
-		db.SettingAnonymousGistTTL: true,
-	}
-
 	for key, value := range settings {
 		s := strings.ReplaceAll(key, "-", " ")
 		s = cases.Title(language.English).String(s)
-		key2 := strings.ReplaceAll(s, " ", "")
-		if numericSettings[key] {
-			// Store raw string value for numeric settings
-			ctx.SetData(key2, value)
-		} else {
-			ctx.SetData(key2, value == "1")
-		}
+		ctx.SetData(strings.ReplaceAll(s, " ", ""), value == "1")
+	}
+
+	// Inject numeric settings with correct casing that cases.Title can't handle
+	if ttl, ok := settings[db.SettingAnonymousGistTTL]; ok {
+		ctx.SetData("AnonymousGistTTL", ttl)
+	} else {
+		ctx.SetData("AnonymousGistTTL", "0")
 	}
 	return nil
 }
