@@ -61,27 +61,27 @@
                 <div class="code overflow-auto">
                     {{ if .gist.PreviewFilename }}
                         {{ if .gist.PreviewMimeType }}
-                            {{ if .gist.PreviewMimeType.IsSVG }}
+                            {{ if .gist.PreviewMime.IsSVG }}
                                 <div class="p-8 flex justify-center">
                                     <img src="{{ .c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/raw/HEAD/{{ .gist.PreviewFilename }}" alt="{{ .gist.PreviewFilename }}" class="max-h-80 object-contain">
                                 </div>
-                            {{ else if .gist.PreviewMimeType.IsImage }}
+                            {{ else if .gist.PreviewMime.IsImage }}
                                 <div class="p-8 flex justify-center">
                                     <img src="{{ .c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/raw/HEAD/{{ .gist.PreviewFilename }}" alt="{{ .gist.PreviewFilename }}" class="max-h-80 object-contain">
                                 </div>
-                            {{ else if .gist.PreviewMimeType.IsAudio }}
+                            {{ else if .gist.PreviewMime.IsAudio }}
                                 <div class="p-8 flex justify-center">
                                     <audio controls class="w-full max-w-lg">
-                                        <source src="{{ .c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/raw/HEAD/{{ .gist.PreviewFilename }}" type="{{ .gist.PreviewMimeType.ContentType }}">
+                                        <source src="{{ .c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/raw/HEAD/{{ .gist.PreviewFilename }}" type="{{ .gist.PreviewMimeType }}">
                                     </audio>
                                 </div>
-                            {{ else if .gist.PreviewMimeType.IsVideo }}
+                            {{ else if .gist.PreviewMime.IsVideo }}
                                 <div class="p-8 flex justify-center">
                                     <video controls class="max-h-80 max-w-full">
-                                        <source src="{{ .c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/raw/HEAD/{{ .gist.PreviewFilename }}" type="{{ .gist.PreviewMimeType.ContentType }}">
+                                        <source src="{{ .c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/raw/HEAD/{{ .gist.PreviewFilename }}" type="{{ .gist.PreviewMimeType }}">
                                     </video>
                                 </div>
-                            {{ else if .gist.PreviewMimeType.IsPDF }}
+                            {{ else if .gist.PreviewMime.IsPDF }}
                                 <div class="pdf max-h-80" data-src="{{ .c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/raw/HEAD/{{ .gist.PreviewFilename }}"></div>
                             {{ else }}
                                 <div class="pl-4 py-0.5 text-xs"><p>{{ .locale.Tr "gist.preview-non-available" }}</p></div>

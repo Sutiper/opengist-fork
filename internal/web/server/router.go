@@ -30,8 +30,8 @@ func (s *Server) registerRoutes() {
 		r.GET("/", gist.Create, checkAllowAnonymousCreate)
 		r.POST("/", gist.ProcessCreate, checkAllowAnonymousCreate)
 		r.POST("/preview", gist.Preview, logged)
-		r.POST("/upload", gist.Upload, logged)
-		r.DELETE("/upload/:uuid", gist.DeleteUpload, logged)
+		r.POST("/upload", gist.Upload, checkAllowAnonymousCreate)
+		r.DELETE("/upload/:uuid", gist.DeleteUpload, checkAllowAnonymousCreate)
 
 		r.GET("/healthcheck", health.Healthcheck)
 

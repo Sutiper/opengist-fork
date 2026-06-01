@@ -32,6 +32,9 @@ const setSetting = (key: string, value: string) => {
     });
 };
 
+// Expose setSetting globally for inline onclick handlers
+(window as any).setSetting = setSetting;
+
 const registerDomSetting = (el: HTMLElement) => {
     // @ts-ignore
     el.dataset["bool"] = !(el.dataset["bool"] === 'true');

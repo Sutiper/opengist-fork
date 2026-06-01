@@ -434,6 +434,11 @@ func (gist *Gist) GetForks(currentUserId uint, offset int) ([]*Gist, error) {
 	return gists, err
 }
 
+// PreviewMime returns the preview MIME type as a git.MimeType for template use.
+func (gist *Gist) PreviewMime() git.MimeType {
+	return git.MimeType{ContentType: gist.PreviewMimeType}
+}
+
 func (gist *Gist) IsAnonymous() bool {
 	// SQLite cannot ALTER COLUMN to make user_id nullable on existing tables,
 	// so GORM stores 0 instead of NULL. Use edit_token as the reliable indicator.
