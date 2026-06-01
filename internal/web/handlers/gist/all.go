@@ -249,3 +249,18 @@ func Search(ctx *context.Context) error {
 	ctx.SetData("searchQuery", ctx.QueryParam("q"))
 	return ctx.Html("search.html")
 }
+
+// AnonymousProfile lists all public anonymous gists (those with an edit token).
+func AnonymousProfile(ctx *context.Context) error {
+	var gists []*db.Gist
+	if err := db.GetAllAnonymousGists(&gists); err != nil {
+		return ctx.ErrorRes(500, "Error fetching anonymous gists", err)
+	}
+
+	ctx.SetData("gists", gists)
+	ctx.SetData("nbGists", int64(len(gists)))
+	ctx.SetData("htmlTitle", ctx.TrH("gist.list.all-from", "anonymous"))
+	ctx.SetData("fromUserStr", "anonymous")
+	ctx.SetData("isAnonymousProfile", true)
+	return ctx.Html("all.html")
+}

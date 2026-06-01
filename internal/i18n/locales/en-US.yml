@@ -410,3 +410,5 @@ gist.anon.delete-irreversible: "You are about to permanently delete the gist:"
 gist.anon.delete-confirm-button: Yes, delete this gist
 gist.anon.cancel: Cancel
 flash.admin.anonymous-gists-purged: "%d anonymous gist(s) deleted"
+admin.allow-anonymous-upload: Allow file uploads for anonymous gists
+admin.allow-anonymous-upload_help: Allow anonymous users to upload files (images, binaries) when creating a gist.

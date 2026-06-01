@@ -172,6 +172,7 @@ func Setup(dbUri string) error {
 		SettingDisableGravatar:        "0",
 		SettingApiEnabled:             "0",
 		SettingAllowAnonymousCreate:   "0",
+		SettingAllowAnonymousUpload:    "0",
 		SettingAnonymousGistVisibility: "unlisted",
 		SettingAnonymousGistTTL:        "0",
 		SettingAnonymousGistInFeed:     "0",

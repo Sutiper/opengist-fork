@@ -23,6 +23,7 @@ const (
 	SettingAnonymousGistVisibility   = "anonymous-gist-visibility" // "public" or "unlisted"
 	SettingAnonymousGistTTL          = "anonymous-gist-ttl"        // minutes, 0 = disabled
 	SettingAnonymousGistInFeed       = "anonymous-gist-in-feed"
+	SettingAllowAnonymousUpload      = "allow-anonymous-upload"    // allow file uploads for anonymous gists
 )
 
 func GetSetting(key string) (string, error) {
@@ -90,6 +91,14 @@ func (auth AuthInfo) RequireLogin() (bool, error) {
 
 func (auth AuthInfo) AllowGistsWithoutLogin() (bool, error) {
 	s, err := GetSetting(SettingAllowGistsWithoutLogin)
+	if err != nil {
+		return false, err
+	}
+	return s == "1", nil
+}
+
+func (auth AuthInfo) AllowAnonymousUpload() (bool, error) {
+	s, err := GetSetting(SettingAllowAnonymousUpload)
 	if err != nil {
 		return false, err
 	}

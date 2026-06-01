@@ -113,6 +113,8 @@ func (s *Server) registerRoutes() {
 			r.GET("/search", gist.AllGists, checkRequireLogin, setAllGistsMode("search"))
 		}
 
+		// Static /anonymous route MUST come before /:user to avoid being caught by it
+		r.GET("/anonymous", gist.AnonymousProfile, checkRequireLogin)
 		r.GET("/:user", gist.AllGists, checkRequireLogin, setAllGistsMode("fromUser"))
 		r.GET("/:user/liked", gist.AllGists, checkRequireLogin, setAllGistsMode("liked"))
 		r.GET("/:user/forked", gist.AllGists, checkRequireLogin, setAllGistsMode("forked"))

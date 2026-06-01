@@ -285,3 +285,5 @@ gist.anon.delete-irreversible: "Vous allez supprimer définitivement le gist :"
 gist.anon.delete-confirm-button: Oui, supprimer ce gist
 gist.anon.cancel: Annuler
 flash.admin.anonymous-gists-purged: "%d gist(s) anonyme(s) supprimé(s)"
+admin.allow-anonymous-upload: Autoriser l'upload de fichiers pour les gists anonymes
+admin.allow-anonymous-upload_help: Permet aux utilisateurs anonymes d'uploader des fichiers (images, binaires) lors de la création d'un gist.
