@@ -551,7 +551,7 @@ func anonGistInit(next Handler) Handler {
 		if err != nil {
 			gist, err = db.GetAnonymousGistByIdentifier(gistName)
 		}
-		if err != nil || !gist.IsAnonymous() {
+		if err != nil || gist.EditToken == "" {
 			return ctx.NotFound("Gist not found")
 		}
 

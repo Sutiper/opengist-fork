@@ -341,9 +341,8 @@ func GetAllGistsByIds(ids []uint) ([]*Gist, error) {
 }
 
 func (gist *Gist) Create() error {
-	// avoids foreign key constraint error because the default value in the struct is 0
-	// For anonymous gists: omit User association to avoid FK constraint on non-existent user
-	if gist.UserID == nil {
+	// For anonymous gists (EditToken set), omit User association to avoid FK constraint
+	if gist.EditToken != "" {
 		return db.Omit("forked_id", "User").Create(&gist).Error
 	}
 	return db.Omit("forked_id").Create(&gist).Error
@@ -436,7 +435,9 @@ func (gist *Gist) GetForks(currentUserId uint, offset int) ([]*Gist, error) {
 }
 
 func (gist *Gist) IsAnonymous() bool {
-	return gist.UserID == nil
+	// SQLite cannot ALTER COLUMN to make user_id nullable on existing tables,
+	// so GORM stores 0 instead of NULL. Use edit_token as the reliable indicator.
+	return gist.EditToken != ""
 }
 
 func (gist *Gist) CanWrite(user *User) bool {
@@ -951,12 +952,12 @@ func (gist *Gist) RemoveFromIndex() {
 func GetAnonymousGistByIdentifier(identifier string) (*Gist, error) {
 	gist := new(Gist)
 	err := db.Preload("User").
-		Where("(uuid LIKE ? OR url_normalized = ?) AND user_id IS NULL AND edit_token != ''",
+		Where("(uuid LIKE ? OR url_normalized = ?) AND edit_token != ''",
 			strings.ToLower(identifier)+"%", strings.ToLower(identifier)).
 		First(gist).Error
 	return gist, err
 }
 
 func GetAllAnonymousGists(gists *[]*Gist) error {
-	return db.Where("user_id IS NULL AND edit_token != ''").Find(gists).Error
+	return db.Where("edit_token != ''").Find(gists).Error
 }
