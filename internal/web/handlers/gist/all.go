@@ -76,6 +76,20 @@ func AllGists(ctx *context.Context) error {
 		var fromUser *db.User
 		var count int64
 
+		// "anonymous" is a virtual user — not stored in DB
+		if strings.EqualFold(fromUserStr, "anonymous") {
+			var anonGists []*db.Gist
+			if err = db.GetAllAnonymousGists(&anonGists); err != nil {
+				return ctx.ErrorRes(500, "Error fetching anonymous gists", err)
+			}
+			ctx.SetData("gists", anonGists)
+			ctx.SetData("htmlTitle", ctx.TrH("gist.list.all-from", "anonymous"))
+			ctx.SetData("fromUserStr", "anonymous")
+			ctx.SetData("nbGists", len(anonGists))
+			ctx.SetData("isAnonymousProfile", true)
+			return ctx.Html("all.html")
+		}
+
 		fromUser, err = db.GetUserByUsername(fromUserStr)
 		if err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {

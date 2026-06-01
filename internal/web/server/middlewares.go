@@ -355,13 +355,21 @@ func loadSettings(ctx *context.Context) error {
 		return err
 	}
 
+	// Settings stored as raw string (not bool)
+	stringSettings := map[string]bool{
+		db.SettingAnonymousGistTTL: true,
+	}
+
 	for key, value := range settings {
+		if stringSettings[key] {
+			continue // handled separately below
+		}
 		s := strings.ReplaceAll(key, "-", " ")
 		s = cases.Title(language.English).String(s)
 		ctx.SetData(strings.ReplaceAll(s, " ", ""), value == "1")
 	}
 
-	// Inject numeric settings with correct casing that cases.Title can't handle
+	// Inject TTL as raw string with correct uppercase casing
 	if ttl, ok := settings[db.SettingAnonymousGistTTL]; ok {
 		ctx.SetData("AnonymousGistTTL", ttl)
 	} else {

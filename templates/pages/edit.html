@@ -8,7 +8,7 @@
                 </h1>
             </div>
             <div class="lg:flex-row flex py-2 lg:py-0 lg:ml-auto">
-                <form id="visibility" class="flex items-center whitespace-nowrap" method="post" action="{{ $.c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/visibility">
+                {{ if not .gist.IsAnonymous }}<form id="visibility" class="flex items-center whitespace-nowrap" method="post" action="{{ $.c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/visibility">
                     {{ .csrfHtml }}
                     <div class="ml-auto inline-flex ">
                         <button id="submit-gist" type="submit" name="private" value="0" class="ml-auto relative inline-flex items-center space-x-2 rounded-l-md border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-500 hover:text-slate-700 dark:hover:text-slate-300 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 leading-3">{{ .locale.Tr "gist.edit.change-visibility" }} {{ .locale.Tr "gist.public" }}</button>
@@ -27,8 +27,8 @@
                             </div>
                         </div>
                     </div>
-                </form>
-                <form id="delete" class="ml-2 flex items-center" method="post" action="{{ $.c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/delete">
+                </form>{{ end }}
+                <form id="delete" class="ml-2 flex items-center" method="post" action="{{ $.c.ExternalUrl }}{{ if .gist.IsAnonymous }}/anon/delete/{{ .token }}{{ else }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/delete{{ end }}">
                     {{ .csrfHtml }}
                     <button type="submit" onclick="return confirm('{{ .locale.Tr "gist.delete.confirm" }}')" class="relative inline-flex items-center space-x-2 rounded-md border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1.5 text-xs font-medium text-rose-600 dark:text-rose-400 hover:bg-rose-500 hover:text-white dark:hover:bg-rose-600 hover:border-rose-600 dark:hover:border-rose-700 dark:hover:text-white focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -41,7 +41,7 @@
         </div>
     </header>
     <main class="mt-4">
-        <form id="create" class="space-y-4" method="post" action="{{ $.c.ExternalUrl }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/edit">
+        <form id="create" class="space-y-4" method="post" action="{{ $.c.ExternalUrl }}{{ if .gist.IsAnonymous }}/anon/edit/{{ .token }}{{ else }}/{{ .gist.User.Username }}/{{ .gist.Identifier }}/edit{{ end }}">
             <div>
                 <p class="cursor-pointer select-none" id="gist-metadata-btn">Metadata {{ if .dto.HasMetadata }}▲{{ else }}▼{{ end }}</p>
                 <div class="grid grid-cols-12 gap-x-4 mt-1 {{ if not .dto.HasMetadata }}hidden{{ end }}" id="gist-metadata">

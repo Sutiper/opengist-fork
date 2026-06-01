@@ -469,7 +469,7 @@ func DeleteExpiredAnonymousGists(ttlMinutes int) error {
 	cutoff := time.Now().Add(-time.Duration(ttlMinutes) * time.Minute).Unix()
 
 	var gists []*Gist
-	err := db.Where("user_id IS NULL AND edit_token != '' AND updated_at < ?", cutoff).
+	err := db.Where("edit_token != '' AND updated_at < ?", cutoff).
 		Find(&gists).Error
 	if err != nil {
 		return err
