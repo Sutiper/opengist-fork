@@ -1,0 +1,73 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Tous les lundis à 6h
+  workflow_dispatch:       # Déclenchement manuel possible
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/thomiceli/opengist.git
+
+      - name: Fetch upstream
+        run: git fetch upstream
+
+      - name: Check if upstream has new commits
+        id: check
+        run: |
+          BEHIND=$(git rev-list HEAD..upstream/main --count)
+          echo "behind=$BEHIND" >> $GITHUB_OUTPUT
+          echo "Upstream is $BEHIND commits ahead"
+
+      - name: Create sync branch
+        if: steps.check.outputs.behind != '0'
+        run: |
+          git checkout -b sync/upstream-$(date +%Y%m%d)
+
+      - name: Merge upstream
+        if: steps.check.outputs.behind != '0'
+        id: merge
+        run: |
+          git merge upstream/main --no-edit || echo "conflicts=true" >> $GITHUB_OUTPUT
+
+      - name: Push sync branch
+        if: steps.check.outputs.behind != '0'
+        run: |
+          git push origin HEAD
+
+      - name: Create Pull Request
+        if: steps.check.outputs.behind != '0'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: sync/upstream-${{ github.run_id }}
+          title: "chore: sync upstream opengist $(date +%Y-%m-%d)"
+          body: |
+            Automatic sync from upstream [thomiceli/opengist](https://github.com/thomiceli/opengist).
+            
+            **Commits en avance upstream :** ${{ steps.check.outputs.behind }}
+            
+            ⚠️ Vérifie les conflits sur ces fichiers sensibles avant de merger :
+            - `internal/db/gist.go`
+            - `internal/web/server/router.go`
+            - `internal/web/server/middlewares.go`
+          labels: upstream-sync
+          draft: ${{ steps.merge.outputs.conflicts == 'true' }}
