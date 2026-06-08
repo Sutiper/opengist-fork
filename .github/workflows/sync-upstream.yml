@@ -44,7 +44,13 @@ jobs:
           BRANCH="sync/upstream-$(date +%Y%m%d)"
           echo "branch=$BRANCH" >> $GITHUB_OUTPUT
           git checkout -b "$BRANCH"
-          git merge upstream/master --no-edit || echo "conflicts=true" >> $GITHUB_OUTPUT
+          if git merge upstream/master --no-edit; then
+            echo "conflicts=false" >> $GITHUB_OUTPUT
+          else
+            echo "conflicts=true" >> $GITHUB_OUTPUT
+            git add -A
+            git commit -m "chore: sync upstream (with conflicts to resolve)"
+          fi
           git push origin "$BRANCH"
 
       - name: Create Pull Request
@@ -52,8 +58,9 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
           branch: ${{ steps.merge.outputs.branch }}
-          title: "chore: sync upstream opengist ${{ github.run_id }}"
+          title: "chore: sync upstream opengist $(date +%Y-%m-%d)"
           body: |
             Synchronisation automatique depuis [thomiceli/opengist](https://github.com/thomiceli/opengist).
 
