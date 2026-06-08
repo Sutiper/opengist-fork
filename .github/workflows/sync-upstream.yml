@@ -33,9 +33,24 @@ jobs:
       - name: Check if upstream has new commits
         id: check
         run: |
-          BEHIND=$(git rev-list HEAD..upstream/master --count)
-          echo "behind=$BEHIND" >> $GITHUB_OUTPUT
-          echo "Upstream is $BEHIND commits ahead of our fork"
+          # Compare fichier par fichier plutôt que par historique git
+          # car nos historiques sont unrelated
+          UPSTREAM_SHA=$(git rev-parse upstream/master)
+          LAST_SYNC=$(cat .last-upstream-sync 2>/dev/null || echo "")
+          if [ "$UPSTREAM_SHA" = "$LAST_SYNC" ]; then
+            echo "behind=0" >> $GITHUB_OUTPUT
+            echo "upstream_sha=" >> $GITHUB_OUTPUT
+          else
+            # Compter les commits upstream depuis le dernier sync (ou tout)
+            if [ -z "$LAST_SYNC" ]; then
+              BEHIND=$(git rev-list upstream/master --count)
+            else
+              BEHIND=$(git rev-list ${LAST_SYNC}..upstream/master --count 2>/dev/null || git rev-list upstream/master --count)
+            fi
+            echo "behind=$BEHIND" >> $GITHUB_OUTPUT
+            echo "upstream_sha=$UPSTREAM_SHA" >> $GITHUB_OUTPUT
+            echo "Upstream has $BEHIND new commits since last sync"
+          fi
 
       - name: Create sync branch and merge
         if: steps.check.outputs.behind != '0'
@@ -44,13 +59,17 @@ jobs:
           BRANCH="sync/upstream-$(date +%Y%m%d)"
           echo "branch=$BRANCH" >> $GITHUB_OUTPUT
           git checkout -b "$BRANCH"
-          if git merge upstream/master --no-edit; then
+          if git merge upstream/master --no-edit --allow-unrelated-histories; then
             echo "conflicts=false" >> $GITHUB_OUTPUT
           else
             echo "conflicts=true" >> $GITHUB_OUTPUT
             git add -A
-            git commit -m "chore: sync upstream (with conflicts to resolve)"
+            git commit -m "chore: sync upstream (with conflicts to resolve)" || true
           fi
+          # Enregistrer le SHA upstream synced
+          echo "${{ steps.check.outputs.upstream_sha }}" > .last-upstream-sync
+          git add .last-upstream-sync
+          git commit -m "chore: record upstream sync SHA" || true
           git push origin "$BRANCH"
 
       - name: Create Pull Request
@@ -60,11 +79,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: main
           branch: ${{ steps.merge.outputs.branch }}
-          title: "chore: sync upstream opengist $(date +%Y-%m-%d)"
+          title: "chore: sync upstream opengist (${{ steps.check.outputs.behind }} commits)"
           body: |
             Synchronisation automatique depuis [thomiceli/opengist](https://github.com/thomiceli/opengist).
 
-            **Commits en avance upstream :** ${{ steps.check.outputs.behind }}
+            **Nouveaux commits upstream :** ${{ steps.check.outputs.behind }}
 
             ⚠️ Vérifie les conflits sur ces fichiers avant de merger :
             - `internal/db/gist.go`
@@ -75,4 +94,4 @@ jobs:
 
       - name: No update needed
         if: steps.check.outputs.behind == '0'
-        run: echo "Fork is up to date with upstream."
+        run: echo "Fork is already up to date with upstream."
