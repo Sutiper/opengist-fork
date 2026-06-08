@@ -3,7 +3,7 @@ name: Sync upstream
 on:
   schedule:
     - cron: '0 6 * * 1'  # Tous les lundis à 6h
-  workflow_dispatch:       # Déclenchement manuel possible
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout fork
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -33,41 +33,39 @@ jobs:
       - name: Check if upstream has new commits
         id: check
         run: |
-          BEHIND=$(git rev-list HEAD..upstream/main --count)
+          BEHIND=$(git rev-list HEAD..upstream/master --count)
           echo "behind=$BEHIND" >> $GITHUB_OUTPUT
-          echo "Upstream is $BEHIND commits ahead"
+          echo "Upstream is $BEHIND commits ahead of our fork"
 
-      - name: Create sync branch
-        if: steps.check.outputs.behind != '0'
-        run: |
-          git checkout -b sync/upstream-$(date +%Y%m%d)
-
-      - name: Merge upstream
+      - name: Create sync branch and merge
         if: steps.check.outputs.behind != '0'
         id: merge
         run: |
-          git merge upstream/main --no-edit || echo "conflicts=true" >> $GITHUB_OUTPUT
-
-      - name: Push sync branch
-        if: steps.check.outputs.behind != '0'
-        run: |
-          git push origin HEAD
+          BRANCH="sync/upstream-$(date +%Y%m%d)"
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          git checkout -b "$BRANCH"
+          git merge upstream/master --no-edit || echo "conflicts=true" >> $GITHUB_OUTPUT
+          git push origin "$BRANCH"
 
       - name: Create Pull Request
         if: steps.check.outputs.behind != '0'
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: sync/upstream-${{ github.run_id }}
-          title: "chore: sync upstream opengist $(date +%Y-%m-%d)"
+          branch: ${{ steps.merge.outputs.branch }}
+          title: "chore: sync upstream opengist ${{ github.run_id }}"
           body: |
-            Automatic sync from upstream [thomiceli/opengist](https://github.com/thomiceli/opengist).
-            
+            Synchronisation automatique depuis [thomiceli/opengist](https://github.com/thomiceli/opengist).
+
             **Commits en avance upstream :** ${{ steps.check.outputs.behind }}
-            
-            ⚠️ Vérifie les conflits sur ces fichiers sensibles avant de merger :
+
+            ⚠️ Vérifie les conflits sur ces fichiers avant de merger :
             - `internal/db/gist.go`
             - `internal/web/server/router.go`
             - `internal/web/server/middlewares.go`
           labels: upstream-sync
           draft: ${{ steps.merge.outputs.conflicts == 'true' }}
+
+      - name: No update needed
+        if: steps.check.outputs.behind == '0'
+        run: echo "Fork is up to date with upstream."
